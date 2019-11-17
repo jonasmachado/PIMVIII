@@ -44,12 +44,6 @@
     <Compile Include="Enums\EstadoEnum.cs" />
     <Compile Include="Enums\StatusPoximoXmlEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\Autorizacao\RequestAutorizacao.cs" />
-    <Compile Include="Request\XmlPorChaveRequest.cs" />
-    <Compile Include="Request\XmlBpeRequest.cs" />
-    <Compile Include="Response\Autorizacao\XmlBpeResponse.cs" />
-    <Compile Include="Response\Autorizacao\ResponseAutorizacao.cs" />
-    <Compile Include="Response\XmlPorChaveResponse.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

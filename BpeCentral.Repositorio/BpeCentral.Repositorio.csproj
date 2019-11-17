@@ -54,18 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexto\EFValidacaoException.cs" />
     <Compile Include="Repositorios\BaseCrudDao.cs" />
-    <Compile Include="Repositorios\ClienteEmitenteRepositorio.cs" />
-    <Compile Include="Repositorios\BpeRepositorio.cs" />
-    <Compile Include="Repositorios\SchemaRepositorio.cs" />
-    <Compile Include="Repositorios\CertificadoRepositorio.cs" />
-    <Compile Include="Repositorios\ControleSerieRepositorio.cs" />
-    <Compile Include="Repositorios\SerieBilheteRepositorio.cs" />
-    <Compile Include="Repositorios\ConfiguracaoEmitenteRepositorio.cs" />
-    <Compile Include="Repositorios\BpeTipoAplicacaoRepositorio.cs" />
-    <Compile Include="Repositorios\UFTributacaoRepositorio.cs" />
-    <Compile Include="Repositorios\BpesProcessados.cs" />
-    <Compile Include="Repositorios\ClienteRepositorio.cs" />
-    <Compile Include="Repositorios\VersaoDllServicoRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
