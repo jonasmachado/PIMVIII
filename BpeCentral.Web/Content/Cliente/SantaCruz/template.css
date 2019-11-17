@@ -1,0 +1,33 @@
+﻿.navbar-brand {
+    height: auto;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+.navbar {
+    border: 0;
+}
+.header {
+    /*background-image: linear-gradient(to right, #EC0000, #EA0800);*/
+    background-image: linear-gradient(to right, #B4B4B4, #F0F0F0);
+}
+.header .nav > li > a {
+    padding: 18px 15px;
+    color: #fff;
+    font-size: 17px;
+    font-family: unset;
+}
+.footer {
+    /*background-color: #EC0000;*/
+}
+.footer small {
+    color: white;
+}
+.footer img {
+    vertical-align: middle;
+    background: white;
+    padding: 3px;
+    border-radius: 3px;
+}
+.header .account {
+    min-height: 90px;
+}

@@ -1,0 +1,64 @@
+﻿@using AutoMapper
+@using BpeCentral.Dominio.Enum
+@using BpeCentral.Dominio
+@using BpeCentral.Helpers
+@using BpeCentral.Web.ViewModels
+@{
+    BPE_USUARIOS result = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
+    UsuarioViewModel usuario = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+}
+<header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://incremente.com.br">
+                    <img src="~/Content/Cliente/SantaCruz/logotipo.png" style="height: 3.7em; padding-top: 0.5em" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Gerenciador de Trabalhos Acadêmicos</a></li>
+                </ul>
+                @if (usuario == null)
+                {
+                    <ul class="nav navbar-nav navbar-right">                        
+                        @Html.ActionLink("Faça seu login", "Index", "Login", null, new { @class= "btn navbar-btn btn-custom btn-custom-black" })
+                    </ul>
+                }
+                else
+                {
+                    <div class="nav navbar-nav navbar-right account @(usuario.Perfil == 1 ? "admin" : "")">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <div>
+                                    <p class="name">@(usuario.Nome)</p>
+                                    @if (usuario.Perfil == 1)
+                                    {
+                                        <p style="color: darksalmon">Administrador</p>
+                                    }
+                                    else
+                                    {
+                                        <p style="color: darksalmon">Usuário de Empresa</p>
+                                    }
+                                </div>
+                                <div>
+                                    <span><b class="caret"></b></span>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Meu Painel","Index","Painel")</li>
+                                <li>@Html.ActionLink("Sair", "Sair", "Login", "", new { area = "Admin" })</li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </nav>
+</header>

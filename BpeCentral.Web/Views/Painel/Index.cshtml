@@ -1,0 +1,76 @@
+﻿@using BpeCentral.Dominio.Enum;
+@{
+    ViewBag.Title = "Painel";
+}
+@Html.Partial("_Breadcrumb")
+
+<div class="container">
+    @Html.Partial("_MenuLateral")
+
+    <div class="col-md-9 padding-vertical crud">
+        <h2>
+            <span>Painel de Trabalhos</span>
+        </h2>
+        <div class="row">
+            <div class="col-sx-6 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <label>Total de Trabalhos</label>
+                        <div class="dropdown pull-right">
+                            <a class="glyphicon glyphicon-option-vertical" id="dropdownMenu1" data-toggle="dropdown" aria-hidden="true"></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>@Html.ActionLink("Listar", "Index", "Usuarios")</li>
+                                <li>@Html.ActionLink("Cadastrar", "Cadastro", "Usuarios")</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <strong>@Model.Usuarios</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sx-6 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <label>Trabalhos a Vencer</label>
+                    </div>
+                    <div class="panel-body text-center">
+                        <strong>@Model.Empresas</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sx-6 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <label>Trabalhos Vencidos</label>
+                        <label>( @Model.BpesProcessados )</label>
+                    </div>
+                    <div class="panel-body text-center ">
+                        <div style="overflow-x: scroll;">
+                            <strong>0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sx-6 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <label>Trabalhos Entregues</label>
+                        <label>( @Model.BpesProcessados )</label>
+                    </div>
+                    <div class="panel-body text-center ">
+                        <div style="overflow-x: scroll;">
+                            <strong>0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/inputmask")
+}

@@ -1,0 +1,28 @@
+﻿@using System.Globalization;
+
+@{ 
+    var rotas = this.ViewContext.RouteData.Values.Values;
+}
+
+<div class="box-breadcrumb">
+    <div class="background-breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb col-md-10">
+                <li>Minha Conta</li>
+                @foreach (string rota in rotas)
+                {
+                    if (!rota.Equals(rotas.Last()))
+                    {
+                        <li>@(rota)</li>
+                    }
+                    else
+                    {
+                        <li class="active">@(ViewBag.Title)</li>
+                    }
+                }
+            </ol>
+            @*<div class=" breadcrumb col-md-2" style="text-align: right;">Carrinho</div>*@
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+2018-03-26 10:53:36,219 [38] [CartaoNFC.Web.Filters.ExceptionHandleErrorAttribute] ERROR - D:\jonas\BpeCentral\BpeCentral.Web\Views\Shared\_Topo.cshtml(41): error CS0103: The name 'EPerfilUsuario' does not exist in the current context

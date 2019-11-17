@@ -1,0 +1,9 @@
+﻿@if (TempData["Mensagem"] != null)
+{
+    <div class="box-msg">
+        <div class="alert @Html.Raw(TempData["ClasseAlert"].ToString())">
+            <b>@Html.Raw(@TempData["Mensagem"])</b>
+            <button type="button" class="close" data-dismiss="alert">×</button>
+        </div>
+    </div>
+}

@@ -1,0 +1,26 @@
+﻿@using AutoMapper
+@using BpeCentral.Dominio.Enum
+@using BpeCentral.Dominio
+@using BpeCentral.Helpers
+@using BpeCentral.Web.ViewModels
+@{
+    BPE_USUARIOS result = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
+    UsuarioViewModel usuario = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+}
+
+<div class="col-md-3 menu">
+    <div class="list-group">
+        @if (usuario != null)
+        {
+            <a href="@Url.Action("Index", "Painel")" class="list-group-item">Meu painel</a>
+            <a href="@Url.Action("Listar", "Usuarios")" class="list-group-item">Usuarios</a>
+            <a href="@Url.Action("Index", "BpeProcessadoXml")" class="list-group-item">Trabalhos</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", "Login")" class="list-group-item">Login</a>
+        }
+    </div>    
+</div>
+
+

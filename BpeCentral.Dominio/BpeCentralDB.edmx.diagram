@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="125ab5962f5e4bacbfcca591293007f3" Name="Diagram1">
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_BPES" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CERTIFICADO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CLIENTE" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CLIENTE_EMITENTE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CONFIG_SERVICO" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CONFIGURACAO_EMITENTE" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_CONTROLE_SERIE" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_LOG_CLIENTE" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_PROCESSADO" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_SCHEMA" Width="2.125" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_SERIE_BILHETE" Width="1.5" PointX="6.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_TIPO_APLICACAO" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_UF_AUTORIZADORA" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_UF_TRIBUTACAO" Width="2.25" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_VERSAO_DLL_SERVICO" Width="2.375" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_VERSAO_GERAL" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_VERSAO_SCRIPT" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BPE_JONASModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="BPE_JONASModel.FK_BPE_CONFIGURACAO_EMITENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_BPE_LOG_SERVICO_BPE_CLIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_BPE_SERIE_BLHETE_BPE_CLIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_CONTROLE_SERIE_CONFIGURACAO_EMITENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_SERIE_BLHETE_CONFIGURACAO_EMITENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_CONTROLE_SERIE_TIPO_APLICACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="BPE_JONASModel.FK_SERIE_BLHETE_TIPO_APLICACAO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BPE_JONASModel.BPE_USUARIOS" Width="1.875" PointX="8.625" PointY="13.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+﻿@model BpeCentral.Web.ViewModels.LoginViewModel
+
+@using (Html.BeginForm("CadastrarPasso1", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form-account" }))
+{
+    <fieldset>
+        @if (Convert.ToBoolean(ViewBag.Estrangeiros))
+        {
+            <div class="form-group col-sx-12 col-md-12">
+                <label><input type="checkbox" id="signUpCheckbox" />&nbsp;Não possuo CPF</label>
+            </div>
+        }
+        <div class="form-group col-sx-12 col-md-12">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "txtSignUpEmail" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>       
+        <input type="submit" value="Continuar" class="btn btn-custom btn-custom-black" />
+    </fieldset>
+}

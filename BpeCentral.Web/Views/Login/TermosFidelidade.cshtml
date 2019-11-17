@@ -1,0 +1,34 @@
+﻿model Fidelidade.Web.ViewModels.TermosFidelidadeViewModel
+@{
+    ViewBag.Title = "Termos de Fidelidade";
+}
+<div class="container">
+    <div class="row padding-vertical">
+        <div class="col-sx-12 col-md-12">
+            <div class="col-sx-12 col-md-12">
+                <h2>Termos de Fidelidade</h2>
+            </div>
+            <div class="col-sx-8 col-md-8">
+                <div class="termos-fidelidade">
+                    @Html.Partial("~/Views/Home/TermosDeFidelidade.cshtml")
+                </div>
+                
+                @using (Html.BeginForm("TermosFidelidade", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <fieldset>
+                        @Html.HiddenFor(m => m.ID)
+                        <div class="form-group col-sx-12 col-md-12">
+                            <label style="cursor: pointer;">
+                               &ensp; @Html.CheckBoxFor(m => m.AceitouTermosFidelidade, new { @class = "checkbox checkbox-inline" })
+                               <span>&ensp; Aceito os termos de fidelidade</span>
+                            </label>
+                            <div class="pull-right">
+                                <input type="submit" value="Enviar" class="btn btn-custom btn-custom-black" />
+                            </div>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>    
+</div>

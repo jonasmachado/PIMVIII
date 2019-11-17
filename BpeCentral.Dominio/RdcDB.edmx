@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RDC_DEV_DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="rdc_embarque_passagem_bpe">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_leitura" Type="datetime" Nullable="false" />
+          <Property Name="embarcado" Type="bit" Nullable="false" />
+          <Property Name="viagem_id" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="chave" Type="varchar" MaxLength="44" Nullable="false" />
+          <Property Name="prefixo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="origem_ibge_venda" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="destino_ibge_venda" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="modalidade" Type="int" Nullable="false" />
+          <Property Name="poltrona" Type="int" Nullable="false" />
+          <Property Name="data_viagem" Type="datetime" Nullable="false" />
+          <Property Name="validada" Type="bit" Nullable="false" />
+          <Property Name="verificada" Type="bit" Nullable="false" />
+          <Property Name="cod_usuario" Type="int" Nullable="false" />
+          <Property Name="device" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RDC_DEV.dbo.rdc_empresa_config' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="rdc_empresa_config">
+          <Key>
+            <PropertyRef Name="id_empresa_config" />
+            <PropertyRef Name="confirma_login" />
+            <PropertyRef Name="tempo_confirma_login" />
+            <PropertyRef Name="tempo_inicio_viagem" />
+          </Key>
+          <Property Name="id_empresa_config" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="confirma_login" Type="bit" Nullable="false" />
+          <Property Name="tempo_confirma_login" Type="int" Nullable="false" />
+          <Property Name="tempo_inicio_viagem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rdc_info_device">
+          <Key>
+            <PropertyRef Name="imei" />
+          </Key>
+          <Property Name="imei" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="versao_OS" Type="varchar" MaxLength="10" />
+          <Property Name="versao_app" Type="varchar" MaxLength="10" />
+          <Property Name="marca_device" Type="varchar" MaxLength="15" />
+          <Property Name="numero_modelo" Type="varchar" MaxLength="15" />
+          <Property Name="operadora" Type="varchar" MaxLength="30" />
+          <Property Name="altura_tela" Type="int" />
+          <Property Name="largura_tela" Type="int" />
+          <Property Name="densidade_tela" Type="int" />
+          <Property Name="ativo" Type="int" Nullable="false" />
+          <Property Name="dt_insercao" Type="datetime" />
+          <Property Name="dt_alteracao" Type="datetime" />
+        </EntityType>
+        <EntityType Name="rdc_log_desembarque_passagem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario_id" Type="int" Nullable="false" />
+          <Property Name="motivo" Type="text" Nullable="false" />
+          <Property Name="data_desembarque" Type="datetime" Nullable="false" />
+          <Property Name="chave_bpe" Type="nchar" MaxLength="44" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rdc_log_rodochechin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rotina" Type="varchar" MaxLength="255" />
+          <Property Name="mensagem" Type="text" Nullable="false" />
+          <Property Name="empresa_codigo" Type="int" />
+          <Property Name="usuario_codigo" Type="int" />
+          <Property Name="data_hora" Type="datetime" Nullable="false" />
+          <Property Name="imei" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="rdc_user_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_user" Type="int" Nullable="false" />
+          <Property Name="ativo" Type="int" Nullable="false" />
+          <Property Name="dt_insercao" Type="datetime" />
+          <Property Name="dt_alteracao" Type="datetime" />
+        </EntityType>
+        <EntityType Name="rdc_version_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="versao_minima" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="versao_atual" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RDC_DEV_DBStoreContainer">
+          <EntitySet Name="rdc_embarque_passagem_bpe" EntityType="Self.rdc_embarque_passagem_bpe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_info_device" EntityType="Self.rdc_info_device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_log_desembarque_passagem" EntityType="Self.rdc_log_desembarque_passagem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_log_rodochechin" EntityType="Self.rdc_log_rodochechin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_user_status" EntityType="Self.rdc_user_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_version_info" EntityType="Self.rdc_version_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdc_empresa_config" EntityType="Self.rdc_empresa_config" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [rdc_empresa_config].[id_empresa_config] AS [id_empresa_config], 
+    [rdc_empresa_config].[confirma_login] AS [confirma_login], 
+    [rdc_empresa_config].[tempo_confirma_login] AS [tempo_confirma_login], 
+    [rdc_empresa_config].[tempo_inicio_viagem] AS [tempo_inicio_viagem]
+    FROM [dbo].[rdc_empresa_config] AS [rdc_empresa_config]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RDC_DEV_DB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="rdc_embarque_passagem_bpe">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_leitura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="embarcado" Type="Boolean" Nullable="false" />
+          <Property Name="viagem_id" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="chave" Type="String" MaxLength="44" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prefixo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="origem_ibge_venda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="destino_ibge_venda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modalidade" Type="Int32" Nullable="false" />
+          <Property Name="poltrona" Type="Int32" Nullable="false" />
+          <Property Name="data_viagem" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="validada" Type="Boolean" Nullable="false" />
+          <Property Name="verificada" Type="Boolean" Nullable="false" />
+          <Property Name="cod_usuario" Type="Int32" Nullable="false" />
+          <Property Name="device" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="rdc_info_device">
+          <Key>
+            <PropertyRef Name="imei" />
+          </Key>
+          <Property Name="imei" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="versao_OS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="versao_app" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="marca_device" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="numero_modelo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="operadora" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="altura_tela" Type="Int32" />
+          <Property Name="largura_tela" Type="Int32" />
+          <Property Name="densidade_tela" Type="Int32" />
+          <Property Name="ativo" Type="Int32" Nullable="false" />
+          <Property Name="dt_insercao" Type="DateTime" Precision="3" />
+          <Property Name="dt_alteracao" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="rdc_log_desembarque_passagem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario_id" Type="Int32" Nullable="false" />
+          <Property Name="motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data_desembarque" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="chave_bpe" Type="String" MaxLength="44" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rdc_log_rodochechin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rotina" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mensagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empresa_codigo" Type="Int32" />
+          <Property Name="usuario_codigo" Type="Int32" />
+          <Property Name="data_hora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="imei" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="rdc_user_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_user" Type="Int32" Nullable="false" />
+          <Property Name="ativo" Type="Int32" Nullable="false" />
+          <Property Name="dt_insercao" Type="DateTime" Precision="3" />
+          <Property Name="dt_alteracao" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="rdc_version_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="versao_minima" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="versao_atual" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rdc_empresa_config">
+          <Key>
+            <PropertyRef Name="id_empresa_config" />
+            <PropertyRef Name="confirma_login" />
+            <PropertyRef Name="tempo_confirma_login" />
+            <PropertyRef Name="tempo_inicio_viagem" />
+          </Key>
+          <Property Name="id_empresa_config" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="confirma_login" Type="Boolean" Nullable="false" />
+          <Property Name="tempo_confirma_login" Type="Int32" Nullable="false" />
+          <Property Name="tempo_inicio_viagem" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RDC_DEV_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="rdc_embarque_passagem_bpe" EntityType="Self.rdc_embarque_passagem_bpe" />
+          <EntitySet Name="rdc_info_device" EntityType="Self.rdc_info_device" />
+          <EntitySet Name="rdc_log_desembarque_passagem" EntityType="Self.rdc_log_desembarque_passagem" />
+          <EntitySet Name="rdc_log_rodochechin" EntityType="Self.rdc_log_rodochechin" />
+          <EntitySet Name="rdc_user_status" EntityType="Self.rdc_user_status" />
+          <EntitySet Name="rdc_version_info" EntityType="Self.rdc_version_info" />
+          <EntitySet Name="rdc_empresa_config" EntityType="Self.rdc_empresa_config" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RDC_DEV_DBStoreContainer" CdmEntityContainer="RDC_DEV_Entities">
+          <EntitySetMapping Name="rdc_embarque_passagem_bpe">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_embarque_passagem_bpe">
+              <MappingFragment StoreEntitySet="rdc_embarque_passagem_bpe">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="data_leitura" ColumnName="data_leitura" />
+                <ScalarProperty Name="embarcado" ColumnName="embarcado" />
+                <ScalarProperty Name="viagem_id" ColumnName="viagem_id" />
+                <ScalarProperty Name="chave" ColumnName="chave" />
+                <ScalarProperty Name="prefixo" ColumnName="prefixo" />
+                <ScalarProperty Name="origem_ibge_venda" ColumnName="origem_ibge_venda" />
+                <ScalarProperty Name="destino_ibge_venda" ColumnName="destino_ibge_venda" />
+                <ScalarProperty Name="modalidade" ColumnName="modalidade" />
+                <ScalarProperty Name="poltrona" ColumnName="poltrona" />
+                <ScalarProperty Name="data_viagem" ColumnName="data_viagem" />
+                <ScalarProperty Name="validada" ColumnName="validada" />
+                <ScalarProperty Name="verificada" ColumnName="verificada" />
+                <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+                <ScalarProperty Name="device" ColumnName="device" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_info_device">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_info_device">
+              <MappingFragment StoreEntitySet="rdc_info_device">
+                <ScalarProperty Name="imei" ColumnName="imei" />
+                <ScalarProperty Name="versao_OS" ColumnName="versao_OS" />
+                <ScalarProperty Name="versao_app" ColumnName="versao_app" />
+                <ScalarProperty Name="marca_device" ColumnName="marca_device" />
+                <ScalarProperty Name="numero_modelo" ColumnName="numero_modelo" />
+                <ScalarProperty Name="operadora" ColumnName="operadora" />
+                <ScalarProperty Name="altura_tela" ColumnName="altura_tela" />
+                <ScalarProperty Name="largura_tela" ColumnName="largura_tela" />
+                <ScalarProperty Name="densidade_tela" ColumnName="densidade_tela" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="dt_insercao" ColumnName="dt_insercao" />
+                <ScalarProperty Name="dt_alteracao" ColumnName="dt_alteracao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_log_desembarque_passagem">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_log_desembarque_passagem">
+              <MappingFragment StoreEntitySet="rdc_log_desembarque_passagem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="data_desembarque" ColumnName="data_desembarque" />
+                <ScalarProperty Name="chave_bpe" ColumnName="chave_bpe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_log_rodochechin">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_log_rodochechin">
+              <MappingFragment StoreEntitySet="rdc_log_rodochechin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rotina" ColumnName="rotina" />
+                <ScalarProperty Name="mensagem" ColumnName="mensagem" />
+                <ScalarProperty Name="empresa_codigo" ColumnName="empresa_codigo" />
+                <ScalarProperty Name="usuario_codigo" ColumnName="usuario_codigo" />
+                <ScalarProperty Name="data_hora" ColumnName="data_hora" />
+                <ScalarProperty Name="imei" ColumnName="imei" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_user_status">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_user_status">
+              <MappingFragment StoreEntitySet="rdc_user_status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cod_user" ColumnName="cod_user" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="dt_insercao" ColumnName="dt_insercao" />
+                <ScalarProperty Name="dt_alteracao" ColumnName="dt_alteracao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_version_info">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_version_info">
+              <MappingFragment StoreEntitySet="rdc_version_info">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="versao_minima" ColumnName="versao_minima" />
+                <ScalarProperty Name="versao_atual" ColumnName="versao_atual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdc_empresa_config">
+            <EntityTypeMapping TypeName="RDC_DEV_DB.rdc_empresa_config">
+              <MappingFragment StoreEntitySet="rdc_empresa_config">
+                <ScalarProperty Name="id_empresa_config" ColumnName="id_empresa_config" />
+                <ScalarProperty Name="confirma_login" ColumnName="confirma_login" />
+                <ScalarProperty Name="tempo_confirma_login" ColumnName="tempo_confirma_login" />
+                <ScalarProperty Name="tempo_inicio_viagem" ColumnName="tempo_inicio_viagem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

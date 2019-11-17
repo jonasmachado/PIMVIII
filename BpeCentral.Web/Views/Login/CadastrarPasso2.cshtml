@@ -1,0 +1,171 @@
+﻿@using Fidelidade.Dominio.Interfaces.Aplicacao
+@using Microsoft.Practices.ServiceLocation
+@model Fidelidade.Web.ViewModels.ClienteViewModel
+@{
+    ViewBag.Title = "Cadastrar Usuário";
+
+    var _usuarioAplicacao = ServiceLocator.Current.GetInstance<IUsuarioAplicacao>();
+    var estados = new SelectList(_usuarioAplicacao.ObterEstados(), "Chave", "Valor", Model.EstadoId);
+    var administrador = false;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sx-12 col-md-12">
+            <div class="col-sx-6 col-md-6 col-md-offset-3">
+                @functions {
+                    object getHtmlAttributes(bool ReadOnly, string CssClass)
+                    {
+                        if (ReadOnly)
+                        {
+                            return new { @class = CssClass, @readonly = "readonly" };
+                        }
+                        return new { @class = CssClass };
+                    }
+                }
+                <div class="steps" id="steps">
+                    <label class="step_nb"></label><h2 class="form-title">Preencha os campos abaixo</h2>
+                    @using (Html.BeginForm("Cadastrar", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "form-cadastro" }))
+                    {
+                        <fieldset>
+                            @Html.HiddenFor(m => m.ID)
+                            @Html.HiddenFor(m => m.DataCadastro)
+                            @Html.HiddenFor(m => m.Guild)
+                            @Html.HiddenFor(m => m.Perfil)
+                            @Html.HiddenFor(m => m.DataPrimeiroResgate)
+                            @Html.HiddenFor(m => m.UsuarioCadastro)
+                            @Html.HiddenFor(m => m.NivelAcesso)
+                            <ul>
+                                <li class="current_step">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(m => m.Nome, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Nome, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Cpf, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control cpf", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.DataNascimento, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.DataNascimento, @getHtmlAttributes(administrador, "form-control date"))
+                                            @Html.ValidationMessageFor(m => m.DataNascimento, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Telefone, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Telefone, @getHtmlAttributes(administrador, "form-control telefone"))
+                                            @Html.ValidationMessageFor(m => m.Telefone, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Cep, new { @class = "control-label" })
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(m => m.Cep, @getHtmlAttributes(administrador, "form-control cep"))
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button" onclick="pesquisarCep()" @(administrador ? "disabled" : "")>
+                                                        <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Cep, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Cidade, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Cidade, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Cidade, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.EstadoId, new { @class = "control-label" })
+                                            @Html.DropDownListFor(m => m.EstadoId, estados, "Selecione", @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.EstadoId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Rua, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Rua, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Rua, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Numero, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Numero, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Numero, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Bairro, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Bairro, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Bairro, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Complemento, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Complemento, @getHtmlAttributes(administrador, "form-control"))
+                                            @Html.ValidationMessageFor(m => m.Complemento, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.Senha, new { @class = "control-label" })
+                                            @Html.TextBoxFor(m => m.Senha, new { @class = "form-control password" })
+                                            @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(m => m.ConfirmarSenha, new { @class = "control-label" })
+                                            @Html.PasswordFor(m => m.ConfirmarSenha, new { @class = "form-control", value = Model.Senha })
+                                            @Html.ValidationMessageFor(m => m.ConfirmarSenha, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            @Html.HiddenFor(m => m.AceitouTermosFidelidade)
+                            @Html.HiddenFor(m => m.Ativo)
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <a href="javascript:void(0);" class="termo-fidelidade-modal">Termo de Fidelidade</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="javascript:void(0);" class="btn btn-custom btn-custom-black pull-right" id="btn-avancar">Avançar</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalTermo" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Termos de Fidelidade</h4>
+            </div>
+            <div id="modalTermoContent" class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+}

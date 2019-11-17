@@ -1,0 +1,71 @@
+﻿@model List<BpeCentral.Web.ViewModels.UsuarioViewModel>
+@{
+    ViewBag.Title = "Usuários";
+}
+@Html.Partial("_Breadcrumb")
+
+<div class="container">
+    @Html.Partial("_MenuLateral")
+
+    <div class="col-md-9 padding-vertical crud">
+        <h2>
+            Usuários
+            @Html.ActionLink("Cadastrar novo", "Cadastro", "Usuarios", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
+        </h2>
+        <table class="dataTable" width="100%">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Perfil</th>
+                    <th>Data de cadastro</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Perfil)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataCadastro)</td>
+                        <td>
+                            @if (item.Ativo)
+                            {
+                                <a title="Desativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})"><span class="label label-success">Ativo</span></a>
+                            }
+                            else
+                            {
+                                <a title="Ativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})"><span class="label label-danger">Inativo</span></a>
+                            }
+                        </td>
+                        <td>
+                            <a class="glyphicon-custom glyphicon glyphicon-pencil" href="@Url.Action("Cadastro", "Usuarios", new { id = item.ID })"></a>
+                            <div class="dropdown pull-right" style="float: left;">
+                                <a class="glyphicon-custom glyphicon glyphicon-cog" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><a href="@Url.Action("MudarSenha", "Usuarios", new { id = item.ID })">Mudar senha</a></li>
+                                    @if (item.Ativo)
+                                    {
+                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})">Desativar</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})">Ativar</a></li>
+                                    }
+                                    <li><a href="@Url.Action("Delete", "Usuarios", new { id = item.ID })">Remover</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+}

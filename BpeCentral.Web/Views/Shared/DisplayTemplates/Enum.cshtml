@@ -1,0 +1,63 @@
+﻿@using BpeCentral.Dominio.Comum
+@using BpeCentral.Dominio.Comum.Enum
+@model Enum
+
+@{
+    if (Model is ETipoMovimento)
+    {
+        @*((ETipoMovimento)Model == ETipoMovimento.Entrada ? MvcHtmlString.Create("<span class='label label-success'>Crédito</span>") : MvcHtmlString.Create("<span class='label label-danger'>Débio</span>"))*@
+    }
+    if (Model is ETipoMovimento)
+    {
+        @(((ETipoMovimento)Model == ETipoMovimento.Saida) ? "Débito" : "Crédito")
+    }
+    else if (Model is EPerfilUsuario)
+    {
+        @((EPerfilUsuario)Model == EPerfilUsuario.Administrador ? MvcHtmlString.Create("<span class='label label-default'>Administrador</span>") :
+                  (EPerfilUsuario)Model == EPerfilUsuario.ClienteEmpresa ? MvcHtmlString.Create("<span class='label label-primary'>Cliente empresa</span>") :
+                      (EPerfilUsuario)Model == EPerfilUsuario.EmpresaDeTransporte ? MvcHtmlString.Create("<span class='label label-success'>Empresa de transporte</span>") :
+                          (EPerfilUsuario)Model == EPerfilUsuario.Funcionario ? MvcHtmlString.Create("<span class='label label-info'>Funcionário</span>") :
+                              (EPerfilUsuario)Model == EPerfilUsuario.Governo ? MvcHtmlString.Create("<span class='label label-danger'>Governo</span>") :
+                                    MvcHtmlString.Create("<span class='label label-warning'>Não informado</span>"))
+    }
+    if (Model is EStatusCartao)
+    {
+        var status = (EStatusCartao)Model;
+        MvcHtmlString mvcHtmlString;
+
+        switch (status)
+        {
+            case EStatusCartao.NAO_CONFIGURADO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-default'>Não configurado</span>");
+                break;
+            case EStatusCartao.CONFIGURADO_CRIPTOGRAFADO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-default'>Configurado</span>");
+                break;
+            case EStatusCartao.FORMATADO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-default'>Formatado</span>");
+                break;
+            case EStatusCartao.IMPRESSO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-primary'>Impresso</span>");
+                break;
+            case EStatusCartao.AGUARDANDO_ATIVACAO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-info'>Aguardando ativação</span>");
+                break;
+            case EStatusCartao.ATIVO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-success'>Ativo</span>");
+                break;
+            case EStatusCartao.INATIVO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-info'>Inativo</span>");
+                break;
+            case EStatusCartao.AGUARDANDO_CANCELAMENTO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-warning'>Aguardando Cancelamento</span>");
+                break;
+            case EStatusCartao.CANCELADO:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-danger'>Cancelado</span>");
+                break;
+            default:
+                mvcHtmlString = MvcHtmlString.Create("<span class='label label-warning'>Não informado</span>");
+                break;
+        }
+        @mvcHtmlString       
+    }
+}

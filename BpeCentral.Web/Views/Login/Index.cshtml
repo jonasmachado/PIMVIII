@@ -1,0 +1,33 @@
+﻿@model BpeCentral.Web.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row col-md-offset-1 padding-vertical">
+        <div class="col-sx-4 col-md-4">
+        </div>
+        <div class="col-sx-4 col-md-4">
+            <div class="col-sx-12 col-md-12">
+                <h2>Acesse sua conta</h2>
+                @*<p>Digite seu e-mail e senha para acessar</p>*@
+            </div>
+            <div class="col-sx-12 col-md-12">
+                @Html.Partial("DisplayTemplates/Login", Model)                
+            </div>
+        </div>
+        @*<div class="col-sx-6 col-md-6">
+            <div class="col-sx-12 col-md-12">
+                <h2>Ainda não <br /> possui cadastro?</h2>
+            </div>
+            <div class="col-sx-12 col-md-12">
+                @Html.Partial("DisplayTemplates/CadastrarPasso1", Model)
+            </div>
+        </div>*@
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+}

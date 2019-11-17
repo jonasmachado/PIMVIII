@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title | BP-e Central</title>
+
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bem-vindo ao site Ouro Pontos. Aqui você pode cadastrar suas passagens Ouro e Prata e gerar pontos para trocar por produtos ou mais passagens. Aproveite! ">
+    <meta name="keywords" content="ouro pontos, ouro prata, fidelidade, ganhar pontos, passagem, ônibus">
+
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" />
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Cliente/SantaCruz/template.css")
+
+</head>
+<body>
+    @{
+        Html.RenderPartial("_Mensagem");
+    }
+
+    @Html.Partial("_Topo")
+
+    @RenderBody()
+    @Html.Partial("_Rodape")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/js")
+</body>
+</html>
