@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOS\DTOUsuario.cs" />
+    <Compile Include="Entidades\Trabalho.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorioBase.cs" />
+    <Compile Include="Interfaces\Repositorio\ITrabalhoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorio\IUsuarioRepositorio.cs" />
     <Compile Include="Interfaces\Servicos\IUsuarioServico.cs" />
     <Compile Include="Mappers\AutoMapperConfiguracao.cs" />

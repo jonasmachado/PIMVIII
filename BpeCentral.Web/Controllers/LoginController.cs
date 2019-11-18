@@ -2,13 +2,13 @@
 using System.Web.Security;
 using BpeCentral.Dominio;
 using BpeCentral.Dominio.Comum.Enum;
-
 using BpeCentral.Helpers;
 using BpeCentral.Web.Model;
 using BpeCentral.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using MyPOS.Dominio.Interfaces.Servicos;
+using MyPOS.Dominio.Entidades;
 
 namespace BpeCentral.Web.Controllers
 {
@@ -16,7 +16,6 @@ namespace BpeCentral.Web.Controllers
     public class LoginController : Controller
     {
         private IUsuarioServico _usuarioServico;
-        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public LoginController(IUsuarioServico usuarioServico)
         {
@@ -32,33 +31,24 @@ namespace BpeCentral.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginViewModel model)
         {
-            SessionHelper.Adicionar("dataOn", new { EMAIL = "qqq@sd.com", ID = 0, NOME = "abc", PERFIL = 1 });
-            SessionHelper.Adicionar("Estado", "RS");
-            return RedirectToAction("Index", "Painel");
+            var autenticacao = _usuarioServico.Autenticacao(model.Email, model.Senha);
 
-        /*
-
-             var autenticacao = _usuarioServico.Autenticacao(model.Email, model.Senha);
-
-            if(model.UF == 0)
-                return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Necessário informar o estado" });
-
-            if (autenticacao != null)
+            if (autenticacao is null)
             {
-                return LoginEReturnToPerfil(/*autenticacao, "" +(int)model.UF.Value null, "1");
+                return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Usuario ou Senha Incorretos" });
             }
-            return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Usuario ou Senha Incorretos" });*/
+            return LoginEReturnToPerfil(autenticacao);           
         }
 
-       /* private ActionResult LoginEReturnToPerfil(BPE_USUARIOS usuario, string CodEstado)
+        private ActionResult LoginEReturnToPerfil(Usuario usuario)
         {
-            FormsAuthentication.SetAuthCookie("qqq@sd.com", false);
-            SessionHelper.Adicionar("dataOn", new BPE_USUARIOS { EMAIL = "qqq@sd.com", ID = 0, NOME = "abc", PERFIL = 1});
+            FormsAuthentication.SetAuthCookie(usuario.Email, false);
+            SessionHelper.Adicionar("dataOn", usuario);
             SessionHelper.Adicionar("Estado", "RS");
             
             return RedirectToAction("Index", "Painel");
         }
-        */
+        
         public ActionResult RecuperarSenha()
         {
             return View();
@@ -66,10 +56,7 @@ namespace BpeCentral.Web.Controllers
       
         public ActionResult Sair()
         {
-           /* var user = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
-            if (user != null)
-                logger.Info(user.PERFIL.ToString() + ") " + user.NOME + " saiu do sistema.");
-            FormsAuthentication.SignOut();*/
+            FormsAuthentication.SignOut();
             SessionHelper.Remover("dataOn");
             SessionHelper.Remover("Token");
             return RedirectToAction("Index", "Login");

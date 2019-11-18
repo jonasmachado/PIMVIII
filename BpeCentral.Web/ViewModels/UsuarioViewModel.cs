@@ -8,7 +8,7 @@ namespace BpeCentral.Web.ViewModels
     public class UsuarioViewModel
     {
         [Key]
-        public int ID { get; set; }
+        public int Id_Usuario { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo nome")]
         [MaxLength(80, ErrorMessage = "Máximo de {0} caracteres")]
@@ -44,11 +44,5 @@ namespace BpeCentral.Web.ViewModels
 
         [DisplayName("Ativo")]
         public bool Ativo { get; set; }
-
-        [Required(ErrorMessage = "Informe a empresa")]
-        [DisplayName("Empresa")]
-        public int? CODIGO_EMPRESA { get; set; }
     }
-
-
 }

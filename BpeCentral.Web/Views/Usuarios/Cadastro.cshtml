@@ -1,6 +1,4 @@
 ﻿@using Microsoft.Ajax.Utilities
-@using BpeCentral.Dominio.Enum
-@using BpeCentral.Dominio.DTO
 
 
 @model BpeCentral.Web.ViewModels.UsuarioViewModel
@@ -20,8 +18,7 @@
         </h2>
         @using (Html.BeginForm("Cadastro", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            @Html.HiddenFor(m => m.ID)
-            @Html.HiddenFor(m => m.DataCadastro)
+            @Html.HiddenFor(m => m.Id_Usuario)
             <fieldset>
                 <div class="form-group">
                     <div class="col-md-6">
@@ -36,8 +33,8 @@
                     </div>
                 </div>
 
-                @if (Model != null && Model.ID == 0)
-                {
+                @if (Model != null && Model.Id_Usuario == 0)
+            {
                     <div class="form-group">
                         <div class="col-md-6">
                             @Html.LabelFor(m => m.Senha, new { @class = "control-label", @for = "Senha" })
@@ -47,45 +44,10 @@
                         <div class="col-md-6">
                             @Html.LabelFor(m => m.RepitaSenha, new { @class = "control-label", @for = "Repita senha" })
                             @Html.PasswordFor(m => m.RepitaSenha, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.RepitaSenha, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                }
-                <div class="form-group">
-                    <div class="col-md-6">
-                        @Html.LabelFor(m => m.Perfil, new { @class = "control-label", @for = "Perfil" })
-                        @*<div class="form-control" id="Perfil">
-                                @Html.EnumDisplayNameFor((EPerfilUsuario)Model.Perfil)
-                                @Html.HiddenFor(m => m.Perfil)
-                            </div>*@
-                        @Html.DropDownListFor(m => m.Perfil, new List<SelectListItem>
-                        {
-                            new SelectListItem {Text = "Administrador", Value ="" + (int)EPerfilUsuario.Administrador},
-                            new SelectListItem {Text = "Usuario Empresa", Value = "" + (int)EPerfilUsuario.EmpresaDeTransporte}
-                        }, new { @class = "form-control" })
-                    </div>
-                    <div class="col-md-6">
-                        @Html.LabelFor(m => m.Ativo, new { @class = "control-label col-sm-2" })
-                        @Html.DropDownListFor(m => m.Ativo, new List<SelectListItem>
-                        {
-                            new SelectListItem {Text = "Ativo", Value = "True", Selected = true},
-                            new SelectListItem {Text = "Inativo", Value = "False"}
-                        }, new { @class = "form-control" })
-                    </div>
-                </div>
-                @if (ViewBag.EmpresasCodigos != null)
-                {
-                    <div class="form-group">
-                        <div class="col-md-6">
-                        @Html.LabelFor(m => m.CODIGO_EMPRESA, new { @class = "control-label col-sm-2" })
-                        @Html.DropDownListFor(m => m.CODIGO_EMPRESA, new SelectList
-                         (
-                              ViewBag.EmpresasCodigos, "Codigo", "Nome"
-
-                         ), new { @class = "form-control" })
-                        </div>
-                    </div>
                 }
                 <div class="form-group">
                     <div class="col-md-12">

@@ -11,7 +11,7 @@ namespace MyPOS.Repositorio.Repositorio
         {
             using (MyPOSContext context = new MyPOSContext())
             {
-                return context.Set<Usuario>().FirstOrDefault(p => p.Login == login && p.Senha == senha);
+                return context.Set<Usuario>().FirstOrDefault(p => p.Email == login && p.Senha == senha);
             }
         }
 
@@ -19,7 +19,7 @@ namespace MyPOS.Repositorio.Repositorio
         {
             using (MyPOSContext context = new MyPOSContext())
             {
-                return context.Set<Usuario>().FirstOrDefault(p => p.Login == login);
+                return context.Set<Usuario>().FirstOrDefault(p => p.Email == login);
             }
         }
     }

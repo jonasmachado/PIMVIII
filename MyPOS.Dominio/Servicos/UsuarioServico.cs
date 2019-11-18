@@ -19,10 +19,22 @@ namespace MyPOS.Dominio.Servicos
             _usuarioRepositorio = repositorio;
         }
         
+        //public Usuario Autenticacao(string login, string senha)
+        //{
+        //    string hash = SenhaHelper.GerarHash(senha);
+        //    return _usuarioRepositorio.Login(login, hash);
+        //}
+
+            //MOCK
         public Usuario Autenticacao(string login, string senha)
         {
-            string hash = SenhaHelper.GerarHash(senha);
-            return _usuarioRepositorio.Login(login, hash);
+            return new Usuario
+            {
+                Email = "testeEmail@teste.com",
+                Id_Usuario = 1,
+                Nome = "UsuarioTeste",
+                Perfil = 1
+            };
         }
 
         public void MudarStatus(int ID)
@@ -51,10 +63,16 @@ namespace MyPOS.Dominio.Servicos
             _usuarioRepositorio.SalvarModificacoes(user);
         }
 
-        public void Incluir(Usuario usuario)
+        /*public void Incluir(Usuario usuario)
         {
             usuario.Senha = SenhaHelper.GerarHash(usuario.Senha);
             _usuarioRepositorio.InserirNovo(usuario);
+        }*/
+
+            //MOCK
+        public void Incluir(Usuario usuario)
+        {
+           
         }
 
         public bool EmailJaCadastrado(string email)

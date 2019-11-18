@@ -62,18 +62,18 @@ namespace BpeCentral.Web.Controllers
         public ActionResult Cadastro(UsuarioViewModel user) 
         {
             var usuario = Mapper.Map<UsuarioViewModel, Usuario>(user);
-            if (user.ID > 0)
+            if (user.Id_Usuario > 0)
             {
-                //var userMaybe = _usuarioServico.TentarAlterar(usuario);
-                //if (!userMaybe.HasValue)
-                //    return RedirectToAction("Cadastro", usuario.ID).ComMensagem(StatusSistemaEnum.Erro, userMaybe.Notificacao);
-            }   //
+                _usuarioServico.Alterar(usuario);
+            }   
             else
             {
-                //if (EmailJaCadastrado(user.Email))
-                //    return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { UsuarioExcecao.MensagensValidacao.EmailEmUso });
+                if (EmailJaCadastrado(user.Email))
+                    return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Email já cadastrado" });
+
                 _usuarioServico.Incluir(usuario);
             }
+
             return RedirectToAction("Index", "Painel").ComMensagem(StatusSistemaEnum.Sucesso);
         }
 
@@ -98,7 +98,7 @@ namespace BpeCentral.Web.Controllers
         {
             var usuario = Mapper.Map<UsuarioViewModel, Usuario>(user);
 
-            if (user.ID > 0)
+            if (user.Id_Usuario > 0)
                 _usuarioServico.MudarSenha(usuario);
             else
                 return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "erro" });
@@ -121,9 +121,16 @@ namespace BpeCentral.Web.Controllers
             return RedirectToAction("Index").ComMensagem(StatusSistemaEnum.Sucesso);
         }
 
+        //MOCK
+        public bool EmailJaCadastrado(string email)
+        {
+            return false;
+        }
+
+        /*
         public bool EmailJaCadastrado(string email)
         {
             return (_usuarioRepositorio.Obter(email) != null);
-        }
+        }*/
     }
 }

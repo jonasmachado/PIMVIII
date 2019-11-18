@@ -34,28 +34,28 @@
                         <td>
                             @if (item.Ativo)
                             {
-                                <a title="Desativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})"><span class="label label-success">Ativo</span></a>
+                                <a title="Desativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})"><span class="label label-success">Ativo</span></a>
                             }
                             else
                             {
-                                <a title="Ativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})"><span class="label label-danger">Inativo</span></a>
+                                <a title="Ativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})"><span class="label label-danger">Inativo</span></a>
                             }
                         </td>
                         <td>
-                            <a class="glyphicon-custom glyphicon glyphicon-pencil" href="@Url.Action("Cadastro", "Usuarios", new { id = item.ID })"></a>
+                            <a class="glyphicon-custom glyphicon glyphicon-pencil" href="@Url.Action("Cadastro", "Usuarios", new { id = item.Id_Usuario })"></a>
                             <div class="dropdown pull-right" style="float: left;">
                                 <a class="glyphicon-custom glyphicon glyphicon-cog" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li><a href="@Url.Action("MudarSenha", "Usuarios", new { id = item.ID })">Mudar senha</a></li>
+                                    <li><a href="@Url.Action("MudarSenha", "Usuarios", new { id = item.Id_Usuario })">Mudar senha</a></li>
                                     @if (item.Ativo)
                                     {
-                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})">Desativar</a></li>
+                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})">Desativar</a></li>
                                     }
                                     else
                                     {
-                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.ID})">Ativar</a></li>
+                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})">Ativar</a></li>
                                     }
-                                    <li><a href="@Url.Action("Delete", "Usuarios", new { id = item.ID })">Remover</a></li>
+                                    <li><a href="@Url.Action("Delete", "Usuarios", new { id = item.Id_Usuario })">Remover</a></li>
                                 </ul>
                             </div>
                         </td>

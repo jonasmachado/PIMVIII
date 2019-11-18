@@ -26,6 +26,10 @@ namespace BpeCentral.Web.Model
                     mensagem = "Nenhum registro encontrado.";
                     classeAlert = "alert-warning";
                     break;
+                case StatusSistemaEnum.CadastradoComSucesso:
+                    mensagem = "Cadastrado com Sucesso";
+                    classeAlert = "alert-success";
+                    break;
                 default:
                     mensagem = "Mensagem não especificada.";
                     classeAlert = "alert-warning";

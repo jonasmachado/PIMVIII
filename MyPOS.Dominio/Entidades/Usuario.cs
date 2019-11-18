@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyPOS.Dominio.Entidades
 {
-    [Table("usuario", Schema ="public")]
+    [Table("usuario", Schema ="dbo")]
     public class Usuario
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,14 +13,14 @@ namespace MyPOS.Dominio.Entidades
         [Column("nome")]
         public string Nome { get; set; }
 
-        [Column("login")]
+        [Column("email")]
         [Key]
-        public string Login { get; set; }
+        public string Email { get; set; }
 
         [Column("senha")]
         public string Senha { get; set; }
 
         [Column("eperfil")]
-        public int PerfilUsuario { get; set; }
+        public int Perfil { get; set; }
     }
 }

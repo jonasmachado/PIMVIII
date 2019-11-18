@@ -70,10 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyPOS.Dominio.Comum\MyPOS.Dominio.Comum.csproj">
-      <Project>{25F1E163-E061-4531-AAE6-973A4C2FC0FC}</Project>
-      <Name>MyPOS.Dominio.Comum</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyPOS.Dominio\MyPOS.Dominio.csproj">
       <Project>{a1838217-348d-4021-b4f4-e5166ff7f0e0}</Project>
       <Name>MyPOS.Dominio</Name>
@@ -81,53 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyPOSContext.cs" />
-    <Compile Include="Migrations\201910040244398_1.0.1.cs" />
-    <Compile Include="Migrations\201910040244398_1.0.1.Designer.cs">
-      <DependentUpon>201910040244398_1.0.1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910040257064_1.0.11.cs" />
-    <Compile Include="Migrations\201910040257064_1.0.11.Designer.cs">
-      <DependentUpon>201910040257064_1.0.11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910040308363_1.0.12.cs" />
-    <Compile Include="Migrations\201910040308363_1.0.12.Designer.cs">
-      <DependentUpon>201910040308363_1.0.12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910040414071_1.0.2.cs" />
-    <Compile Include="Migrations\201910040414071_1.0.2.Designer.cs">
-      <DependentUpon>201910040414071_1.0.2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910210344365_nva.cs" />
-    <Compile Include="Migrations\201910210344365_nva.Designer.cs">
-      <DependentUpon>201910210344365_nva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910270407056_opcional.cs" />
-    <Compile Include="Migrations\201910270407056_opcional.Designer.cs">
-      <DependentUpon>201910270407056_opcional.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositorio\TrabalhoRepositorio.cs" />
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
     <Compile Include="Repositorio\RepositorioBase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910040244398_1.0.1.resx">
-      <DependentUpon>201910040244398_1.0.1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910040257064_1.0.11.resx">
-      <DependentUpon>201910040257064_1.0.11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910040308363_1.0.12.resx">
-      <DependentUpon>201910040308363_1.0.12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910040414071_1.0.2.resx">
-      <DependentUpon>201910040414071_1.0.2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910210344365_nva.resx">
-      <DependentUpon>201910210344365_nva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910270407056_opcional.resx">
-      <DependentUpon>201910270407056_opcional.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

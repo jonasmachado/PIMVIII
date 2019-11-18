@@ -10,5 +10,6 @@ namespace MyPOS.Repositorio.Context
 
         }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Trabalho> Trabalho { get; set; }
     }
 }

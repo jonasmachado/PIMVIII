@@ -11,6 +11,7 @@ namespace BpeCentral.Dominio.Comum.Enum
         Sucesso,
         Erro,
         NaoEncontrado,
+        CadastradoComSucesso,
         warning
     }
 }
