@@ -22,5 +22,12 @@ namespace MyPOS.Repositorio.Repositorio
                 return context.Set<Usuario>().FirstOrDefault(p => p.Email == login);
             }
         }
+        public Usuario ObterPorId(int id)
+        {
+            using (MyPOSContext context = new MyPOSContext())
+            {
+                return context.Set<Usuario>().FirstOrDefault(p => p.Id_Usuario == id);
+            }
+        }
     }
 }

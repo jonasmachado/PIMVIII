@@ -6,5 +6,6 @@ namespace MyPOS.Dominio.Interfaces.Repositorio
     {
         Usuario Login(string login, string senha);
         Usuario ObterPorLogin(string login);
+        Usuario ObterPorId(int id);
     }
 }

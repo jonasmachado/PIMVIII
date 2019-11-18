@@ -1,0 +1,66 @@
+﻿@using Microsoft.Ajax.Utilities
+
+
+@model BpeCentral.Web.ViewModels.UsuarioViewModel
+@{
+    ViewBag.Title = "Cadastrar Trabalho";
+}
+
+@Html.Partial("_Breadcrumb")
+
+<div class="container">
+    @Html.Partial("_MenuLateral")
+
+    <div class="col-md-9 padding-vertical crud">
+        <h2>
+            Cadastrar Trabalho
+            @Html.ActionLink("Listagem", "Index", "Usuarios", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
+        </h2>
+        @using (Html.BeginForm("Cadastro", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Id_Usuario)
+            <fieldset>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Nome, new { @class = "control-label", @for = "Nome" })
+                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label", @for = "Email" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @if (Model != null && Model.Id_Usuario == 0)
+            {
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Senha, new { @class = "control-label", @for = "Senha" })
+                            @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.RepitaSenha, new { @class = "control-label", @for = "Repita senha" })
+                            @Html.PasswordFor(m => m.RepitaSenha, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.RepitaSenha, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                }
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-custom btn-custom-black pull-right">Cadastrar</button>
+                        <a href="@Url.Action("Index", "Usuarios")" class="btn btn-custom btn-custom-gray pull-right">Cancelar</a>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+}

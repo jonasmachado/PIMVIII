@@ -5,28 +5,35 @@ using BpeCentral.Dominio;
 using AutoMapper;
 using BpeCentral.Helpers;
 using System;
+using MyPOS.Dominio.Interfaces.Repositorio;
 
 namespace BpeCentral.Web.Controllers
 {
     [ExceptionHandleError]
     public class PainelController : Controller
     {
-
-        public PainelController()
+        private ITrabalhoRepositorio _trabalhoRepositorio;
+        public PainelController(/*ITrabalhoRepositorio trabalhoRepositorio*/)
         {
-        }                     
-        
-        [SessionAuthorize(Roles = "Administrador,Empresa de Transporte")]
+          //  _trabalhoRepositorio = trabalhoRepositorio;
+        }
+
+        [SessionAuthorize(Roles = "Administrador")]
         public ActionResult Index()
         {
-            ViewBag.Estado = 0;
-            PainelViewModel vm = new PainelViewModel();
+            var vm = MontaDadosPainel();
             return View(vm);
         }
 
         private PainelViewModel MontaDadosPainel()
         {
-            return new PainelViewModel();
+            return new PainelViewModel()
+            {
+                TotalTrabalhos     = 10,// _trabalhoRepositorio.Count(),
+                TrabalhosAVencer   = 3,//_trabalhoRepositorio.ObterQuantidadeAVencer(),
+                TrabalhosEntregues = 2,//_trabalhoRepositorio.ObterQuantidadeEntregue(),
+                TrabalhosVencidos  = 1//_trabalhoRepositorio.ObterQuantidadeVencidos()
+            };
         }
     }
 }

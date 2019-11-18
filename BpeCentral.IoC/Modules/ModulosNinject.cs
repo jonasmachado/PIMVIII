@@ -18,6 +18,7 @@ namespace BpeCentral.IoC.Modules
             // Repositório:
             //Bind(typeof(IRepositorioBase<>)).To(typeof(RepositorioBase<>));
             Bind<IUsuarioRepositorio>().To<UsuarioRepositorio>();
+            Bind<ITrabalhoRepositorio>().To<TrabalhoRepositorio>();
 
         }
     }

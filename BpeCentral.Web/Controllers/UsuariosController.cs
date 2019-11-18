@@ -45,7 +45,7 @@ namespace BpeCentral.Web.Controllers
             var vm = new UsuarioViewModel();
             if (id > 0)
             {
-                var result = _usuarioRepositorio.Obter(id);
+                var result = _usuarioRepositorio.ObterPorId(id.Value);
                 if (result != null && result.Id_Usuario > 0)
                     vm = Mapper.Map<Usuario, UsuarioViewModel>(result);
             }
@@ -116,7 +116,7 @@ namespace BpeCentral.Web.Controllers
         [SessionAuthorize(Roles = "Administrador")]
         public ActionResult Delete(int id)
         {
-            var usuario = _usuarioRepositorio.Obter(new{ Id_Usuario = id});
+            var usuario = _usuarioRepositorio.ObterPorId(id);
             _usuarioRepositorio.RemoverItem(usuario);
             return RedirectToAction("Index").ComMensagem(StatusSistemaEnum.Sucesso);
         }

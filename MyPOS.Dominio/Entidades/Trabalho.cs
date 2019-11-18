@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyPOS.Dominio.Entidades
 {
-    [Table("trabalho", Schema ="dbo")]
+    [Table("trabalho", Schema = "hwb")]
     public class Trabalho
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,6 +19,6 @@ namespace MyPOS.Dominio.Entidades
         public bool Entregue { get; set; }
 
         [Column("dataparaentrega")]
-        public string DataParaEntrega { get; set; }
+        public DateTime DataParaEntrega { get; set; }
     }
 }

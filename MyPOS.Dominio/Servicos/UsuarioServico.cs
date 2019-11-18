@@ -63,16 +63,10 @@ namespace MyPOS.Dominio.Servicos
             _usuarioRepositorio.SalvarModificacoes(user);
         }
 
-        /*public void Incluir(Usuario usuario)
+        public void Incluir(Usuario usuario)
         {
             usuario.Senha = SenhaHelper.GerarHash(usuario.Senha);
             _usuarioRepositorio.InserirNovo(usuario);
-        }*/
-
-            //MOCK
-        public void Incluir(Usuario usuario)
-        {
-           
         }
 
         public bool EmailJaCadastrado(string email)

@@ -5,9 +5,10 @@ namespace BpeCentral.Web.ViewModels
 {
     public class PainelViewModel
     {
-        public int Usuarios { get; set; }
-        public int Perfil { get; set; }
-        public int Empresas { get; set; }
-        public int BpesProcessados { get; set; }
+        public int TotalTrabalhos { get; set; }
+        public int TrabalhosAVencer { get; set; }
+        public int TrabalhosVencidos { get; set; }
+        public int TrabalhosEntregues { get; set; }
+
     }
 }

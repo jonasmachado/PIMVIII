@@ -4,5 +4,8 @@ namespace MyPOS.Dominio.Interfaces.Repositorio
 {
     public interface ITrabalhoRepositorio : IRepositorioBase<Trabalho>
     {
+        int ObterQuantidadeAVencer();
+        int ObterQuantidadeVencidos();
+        int ObterQuantidadeEntregue();
     }
 }

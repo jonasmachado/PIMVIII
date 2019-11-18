@@ -18,8 +18,6 @@
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Perfil</th>
-                    <th>Data de cadastro</th>
-                    <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -30,19 +28,8 @@
                         <td>@Html.DisplayFor(modelItem => item.Nome)</td>
                         <td>@Html.DisplayFor(modelItem => item.Email)</td>
                         <td>@Html.DisplayFor(modelItem => item.Perfil)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DataCadastro)</td>
                         <td>
-                            @if (item.Ativo)
-                            {
-                                <a title="Desativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})"><span class="label label-success">Ativo</span></a>
-                            }
-                            else
-                            {
-                                <a title="Ativar" href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})"><span class="label label-danger">Inativo</span></a>
-                            }
-                        </td>
-                        <td>
-                            <a class="glyphicon-custom glyphicon glyphicon-pencil" href="@Url.Action("Cadastro", "Usuarios", new { id = item.Id_Usuario })"></a>
+                            <a class="glyphicon-custom glyphicon glyphicon-pencil pull-right" href="@Url.Action("Cadastro", "Usuarios", new { id = item.Id_Usuario })"></a>
                             <div class="dropdown pull-right" style="float: left;">
                                 <a class="glyphicon-custom glyphicon glyphicon-cog" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
