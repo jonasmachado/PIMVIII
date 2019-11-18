@@ -13,9 +13,9 @@ namespace BpeCentral.Web.Controllers
     public class PainelController : Controller
     {
         private ITrabalhoRepositorio _trabalhoRepositorio;
-        public PainelController(/*ITrabalhoRepositorio trabalhoRepositorio*/)
+        public PainelController(ITrabalhoRepositorio trabalhoRepositorio)
         {
-          //  _trabalhoRepositorio = trabalhoRepositorio;
+            _trabalhoRepositorio = trabalhoRepositorio;
         }
 
         [SessionAuthorize(Roles = "Administrador")]
@@ -29,10 +29,10 @@ namespace BpeCentral.Web.Controllers
         {
             return new PainelViewModel()
             {
-                TotalTrabalhos     = 10,// _trabalhoRepositorio.Count(),
-                TrabalhosAVencer   = 3,//_trabalhoRepositorio.ObterQuantidadeAVencer(),
-                TrabalhosEntregues = 2,//_trabalhoRepositorio.ObterQuantidadeEntregue(),
-                TrabalhosVencidos  = 1//_trabalhoRepositorio.ObterQuantidadeVencidos()
+                TotalTrabalhos     = _trabalhoRepositorio.Count(),
+                TrabalhosAVencer   = _trabalhoRepositorio.ObterQuantidadeAVencer(),
+                TrabalhosEntregues = _trabalhoRepositorio.ObterQuantidadeEntregue(),
+                TrabalhosVencidos  = _trabalhoRepositorio.ObterQuantidadeVencidos()
             };
         }
     }

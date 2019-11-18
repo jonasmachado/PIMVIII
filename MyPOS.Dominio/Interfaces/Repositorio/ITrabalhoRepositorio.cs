@@ -7,5 +7,6 @@ namespace MyPOS.Dominio.Interfaces.Repositorio
         int ObterQuantidadeAVencer();
         int ObterQuantidadeVencidos();
         int ObterQuantidadeEntregue();
+        Trabalho ObterPorId(int id);
     }
 }

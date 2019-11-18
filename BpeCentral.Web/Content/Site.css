@@ -146,10 +146,9 @@ a:focus, a:hover {
 -------------------------------------------------- */
 .footer {
     position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #dcd1d1;
-    padding-top: 10px;
+    bottom: 0;
 }
 
 .footerInstitucional {
@@ -343,8 +342,7 @@ a:focus, a:hover {
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 .carousel {
-    height: 500px;
-    margin-bottom: 60px;
+    height: 80vh;
 }
 
 .carousel-caption {
@@ -352,8 +350,12 @@ a:focus, a:hover {
 }
 
 .carousel .item {
-    height: 500px;
+    height: 85vh;
     background-color: #777;
+}
+
+.carousel-control{
+    height: 90vh;
 }
 
 .carousel-inner > .item > img {

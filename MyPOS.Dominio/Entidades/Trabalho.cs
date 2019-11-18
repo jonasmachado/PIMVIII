@@ -15,6 +15,9 @@ namespace MyPOS.Dominio.Entidades
         [Column("titulo")]
         public string Titulo { get; set; }
 
+        [Column("materia")]
+        public string Materia { get; set; }
+
         [Column("entregue")]
         public bool Entregue { get; set; }
 

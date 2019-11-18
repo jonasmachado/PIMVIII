@@ -31,5 +31,13 @@ namespace MyPOS.Repositorio.Repositorio
                 return context.Set<Trabalho>().Where(t => t.Entregue).Count();
             }
         }
+
+        public Trabalho ObterPorId(int id)
+        {
+            using (MyPOSContext context = new MyPOSContext())
+            {
+                return context.Set<Trabalho>().FirstOrDefault(a => a.Id_Trabalho == id);
+            }
+        }
     }
 }

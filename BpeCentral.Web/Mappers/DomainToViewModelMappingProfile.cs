@@ -10,6 +10,7 @@ namespace BpeCentral.Web.Mappers
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Usuario, UsuarioViewModel>();          
+            CreateMap<Trabalho, TrabalhoViewModel>();          
         }
     }
 }

@@ -14,11 +14,11 @@
     <div class="col-md-9 padding-vertical crud">
         <h2>
             Cadastrar Trabalho
-            @Html.ActionLink("Listagem", "Index", "Usuarios", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
+            @Html.ActionLink("Listagem", "Index", "Trabalho", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
         </h2>
-        @using (Html.BeginForm("Cadastro", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("Cadastro", "Trabalho", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            @*@Html.HiddenFor(m => m.Id_Usuario)*@
+            @Html.HiddenFor(m => m.Id_Trabalho)
             <fieldset>
                 <div class="form-group">
                     <div class="col-md-6">
@@ -26,35 +26,36 @@
                         @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Titulo, "", new { @class = "text-danger" })
                     </div>
-                    @*<div class="col-md-6">
-                        @Html.LabelFor(m => m.Email, new { @class = "control-label", @for = "Email" })
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>*@
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Materia, new { @class = "control-label", @for = "Email" })
+                        @Html.TextBoxFor(m => m.Materia, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Materia, "", new { @class = "text-danger" })
+                    </div>
                 </div>
 
-                @*@if (Model != null && Model.Id_Usuario == 0)
-            {
                     <div class="form-group">
                         <div class="col-md-6">
-                            @Html.LabelFor(m => m.Senha, new { @class = "control-label", @for = "Senha" })
-                            @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.DataParaEntrega, new { @class = "control-label", @for = "Senha" })
+                            @Html.TextBoxFor(m => m.DataParaEntrega, new { @class = "form-control datepicker" })
+                            @Html.ValidationMessageFor(m => m.DataParaEntrega, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-md-6">
-                            @Html.LabelFor(m => m.RepitaSenha, new { @class = "control-label", @for = "Repita senha" })
-                            @Html.PasswordFor(m => m.RepitaSenha, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.RepitaSenha, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Entregue, new { @class = "control-label col-sm-2" })
+                            @Html.DropDownListFor(m => m.Entregue, new List<SelectListItem>
+                            {
+                                new SelectListItem {Text = "Entregue", Value = "True", Selected = true},
+                                new SelectListItem {Text = "Pendente", Value = "False"}
+                            }, new { @class = "form-control" })
                         </div>
                     </div>
 
-                }
+                
                 <div class="form-group">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-custom btn-custom-black pull-right">Cadastrar</button>
-                        <a href="@Url.Action("Index", "Usuarios")" class="btn btn-custom btn-custom-gray pull-right">Cancelar</a>
+                        <a href="@Url.Action("Index", "Trabalho")" class="btn btn-custom btn-custom-gray pull-right">Cancelar</a>
                     </div>
-                </div>*@
+                </div>
             </fieldset>
         }
     </div>
