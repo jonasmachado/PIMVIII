@@ -3,14 +3,12 @@ using System.Web.Security;
 using BpeCentral.Dominio;
 using BpeCentral.Dominio.Comum.Enum;
 
-using BpeCentral.Dominio.Interfaces.Servico;
 using BpeCentral.Helpers;
 using BpeCentral.Web.Model;
 using BpeCentral.Web.ViewModels;
 using System;
-using BpeCentral.Dominio.DTO;
 using System.Collections.Generic;
-using BpeCentral.Dominio.Comum.Enums;
+using MyPOS.Dominio.Interfaces.Servicos;
 
 namespace BpeCentral.Web.Controllers
 {
@@ -27,15 +25,6 @@ namespace BpeCentral.Web.Controllers
 
         public ActionResult Index()
         {
-            var valores = Enum.GetValues(typeof(EstadoEnum));
-            List<EstadoCodigoDTO> lst = new List<EstadoCodigoDTO>();
-
-            foreach(var item in valores)
-            {
-                lst.Add(new EstadoCodigoDTO { Codigo = (int)item, Estado = item.ToString()});
-            }
-
-            ViewBag.Estados = lst;
             return View();
         }
 
@@ -43,9 +32,11 @@ namespace BpeCentral.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginViewModel model)
         {
-            return LoginEReturnToPerfil(/*autenticacao, "" +(int)model.UF.Value*/ null, "1");
+            SessionHelper.Adicionar("dataOn", new { EMAIL = "qqq@sd.com", ID = 0, NOME = "abc", PERFIL = 1 });
+            SessionHelper.Adicionar("Estado", "RS");
+            return RedirectToAction("Index", "Painel");
 
-
+        /*
 
              var autenticacao = _usuarioServico.Autenticacao(model.Email, model.Senha);
 
@@ -54,12 +45,12 @@ namespace BpeCentral.Web.Controllers
 
             if (autenticacao != null)
             {
-                return LoginEReturnToPerfil(/*autenticacao, "" +(int)model.UF.Value*/ null, "1");
+                return LoginEReturnToPerfil(/*autenticacao, "" +(int)model.UF.Value null, "1");
             }
-            return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Usuario ou Senha Incorretos" });
+            return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "Usuario ou Senha Incorretos" });*/
         }
 
-        private ActionResult LoginEReturnToPerfil(BPE_USUARIOS usuario, string CodEstado)
+       /* private ActionResult LoginEReturnToPerfil(BPE_USUARIOS usuario, string CodEstado)
         {
             FormsAuthentication.SetAuthCookie("qqq@sd.com", false);
             SessionHelper.Adicionar("dataOn", new BPE_USUARIOS { EMAIL = "qqq@sd.com", ID = 0, NOME = "abc", PERFIL = 1});
@@ -67,7 +58,7 @@ namespace BpeCentral.Web.Controllers
             
             return RedirectToAction("Index", "Painel");
         }
-
+        */
         public ActionResult RecuperarSenha()
         {
             return View();
@@ -75,10 +66,10 @@ namespace BpeCentral.Web.Controllers
       
         public ActionResult Sair()
         {
-            var user = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
+           /* var user = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
             if (user != null)
                 logger.Info(user.PERFIL.ToString() + ") " + user.NOME + " saiu do sistema.");
-            FormsAuthentication.SignOut();
+            FormsAuthentication.SignOut();*/
             SessionHelper.Remover("dataOn");
             SessionHelper.Remover("Token");
             return RedirectToAction("Index", "Login");

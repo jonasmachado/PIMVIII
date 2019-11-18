@@ -1,8 +1,4 @@
-﻿using BpeCentral.Dominio.Comum.Enums;
-using BpeCentral.Dominio.DTO;
-using BpeCentral.Web.Filters;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BpeCentral.Web.ViewModels
 {
@@ -17,9 +13,5 @@ namespace BpeCentral.Web.ViewModels
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [EmailAddress(ErrorMessage = "Endereço de e-mail inválido.")]
         public string Email { get; set; }
-
-        [Display(Name = "Estado")]
-        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        public EstadoEnum? UF { get; set; }
     }
 }

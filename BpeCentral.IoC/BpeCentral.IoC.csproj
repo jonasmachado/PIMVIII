@@ -92,13 +92,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BpeCentral.Dominio\BpeCentral.Dominio.csproj">
-      <Project>{ab44887b-560c-4dd0-84ee-7759b87765bb}</Project>
-      <Name>BpeCentral.Dominio</Name>
-    </ProjectReference>   
-    <ProjectReference Include="..\BpeCentral.Repositorio\BpeCentral.Repositorio.csproj">
-      <Project>{a5fd331c-900f-45f3-8c66-d633fe63c6c7}</Project>
-      <Name>BpeCentral.Repositorio</Name>
+    <ProjectReference Include="..\MyPOS.Dominio\MyPOS.Dominio.csproj">
+      <Project>{A1838217-348D-4021-B4F4-E5166FF7F0E0}</Project>
+      <Name>MyPOS.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPOS.Repositorio\MyPOS.Repositorio.csproj">
+      <Project>{F82D5758-F5B5-4057-9E73-86F8FAE37B90}</Project>
+      <Name>MyPOS.Repositorio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

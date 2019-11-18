@@ -1,12 +1,12 @@
 ﻿using BpeCentral.Dominio.Interfaces.Repositorio;
+using MyPOS.Dominio.Entidades;
 
 namespace BpeCentral.Dominio.Repositorio.Interfaces
 {
-    public interface IUsuarioRepositorio : IBaseCrudDao<BPE_USUARIOS>
+    public interface IUsuarioRepositorio : IBaseCrudDao<Usuario>
     {
-        BPE_USUARIOS Login(string login, string senha);
-        BPE_USUARIOS Obter(string email);
-        int? ObterCodigoEmitente(int id);
+        Usuario Login(string login, string senha);
+        Usuario Obter(string email);
         void DeletarUsuario(int id);
     }
 }

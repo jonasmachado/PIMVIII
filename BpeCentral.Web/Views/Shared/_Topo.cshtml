@@ -1,11 +1,10 @@
 ﻿@using AutoMapper
-@using BpeCentral.Dominio.Enum
-@using BpeCentral.Dominio
+@using MyPOS.Dominio.Entidades
 @using BpeCentral.Helpers
 @using BpeCentral.Web.ViewModels
 @{
-    BPE_USUARIOS result = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
-    UsuarioViewModel usuario = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+    var result = SessionHelper.Recuperar<Usuario>("dataOn");
+    UsuarioViewModel usuario = Mapper.Map<Usuario, UsuarioViewModel>(result);
 }
 <header class="header">
     <nav class="navbar">

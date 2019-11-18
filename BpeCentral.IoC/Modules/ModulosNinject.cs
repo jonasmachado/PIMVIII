@@ -1,7 +1,7 @@
-﻿using BpeCentral.Dominio.Interfaces.Servico;
-using BpeCentral.Dominio.Repositorio.Interfaces;
-using BpeCentral.Dominio.Servico;
-using BpeCentral.Repositorio.Repositorios;
+﻿using MyPOS.Dominio.Interfaces.Repositorio;
+using MyPOS.Dominio.Interfaces.Servicos;
+using MyPOS.Dominio.Servicos;
+using MyPOS.Repositorio.Repositorio;
 using Ninject.Modules;
 
 namespace BpeCentral.IoC.Modules
@@ -18,24 +18,7 @@ namespace BpeCentral.IoC.Modules
             // Repositório:
             //Bind(typeof(IRepositorioBase<>)).To(typeof(RepositorioBase<>));
             Bind<IUsuarioRepositorio>().To<UsuarioRepositorio>();
-            Bind<IVersaoDllServicoRepositorio>().To<VersaoDllServicoRepositorio>();
-            Bind<IUFTributacaoRepositorio>().To<UFTributacaoRepositorio>();
-            Bind<IBpesProcessadosRepositorio>().To<BpesProcessados>();
-            Bind<IBpesProcessadosServico>().To<BpesProcessadosServico>();
-            Bind<IPainelServico>().To<PainelServico>();
-            Bind<IConfiguracaoEmitenteRepositorio>().To<ConfiguracaoEmitenteRepositorio>();
-            Bind<IBpesProcessadosXmlServico>().To<BpesProcessadosXmlServico>();
-            Bind<IClienteRepositorio>().To<ClienteRepositorio>();
-            Bind<ISerieBilheteRepositorio>().To<SerieBilheteRepositorio>();
-            Bind<IControleSerieRepositorio>().To<ControleSerieRepositorio>();
-            Bind<IBpeTipoAplicacaoRepositorio>().To<BpeTipoAplicacaoRepositorio>();
-            Bind<ICertificadoRepositorio>().To<CertificadoRepositorio>();
-            Bind<ICertificadoServico>().To<CertificadoServico>();
-            Bind<ISchemaRepositorio>().To<SchemaRepositorio>();
-            Bind<ISchemaServico>().To<SchemaServico>();
-            Bind<IClienteEmitenteRepositorio>().To<ClienteEmitenteRepositorio>();
-            Bind<IClienteServico>().To<ClienteServico>();
-            Bind<IBpeRepositorio>().To<BpeRepositorio>();
+
         }
     }
 }

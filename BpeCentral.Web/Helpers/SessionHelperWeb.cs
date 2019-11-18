@@ -1,13 +1,13 @@
-﻿using BpeCentral.Dominio;
-using BpeCentral.Helpers;
+﻿using BpeCentral.Helpers;
+using MyPOS.Dominio.Entidades;
 
 namespace BpeCentral.Web.Helpers
 {
     public static class SessionHelperWeb
     { 
-        public static BPE_USUARIOS RecuperarUsuario()
+        public static Usuario RecuperarUsuario()
         {
-            return  SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
+            return  SessionHelper.Recuperar<Usuario>("dataOn");
         }
     }
 }

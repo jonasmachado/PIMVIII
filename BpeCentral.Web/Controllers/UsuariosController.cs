@@ -4,14 +4,15 @@ using AutoMapper;
 using BpeCentral.Web.ViewModels;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BpeCentral.Dominio.Interfaces.Servico;
-using BpeCentral.Dominio.Repositorio.Interfaces;
 using BpeCentral.Web.Filters;
 using BpeCentral.Web.Model;
 using BpeCentral.Web.Helpers;
 using BpeCentral.Dominio.Comum.Enum;
 using BpeCentral.Dominio;
 using System.Linq;
+using MyPOS.Dominio.Interfaces.Repositorio;
+using MyPOS.Dominio.Interfaces.Servicos;
+using MyPOS.Dominio.Entidades;
 
 namespace BpeCentral.Web.Controllers
 {
@@ -20,15 +21,11 @@ namespace BpeCentral.Web.Controllers
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IUsuarioServico _usuarioServico;
-        private readonly IClienteRepositorio _clienteRespositorio;
-        private readonly IConfiguracaoEmitenteRepositorio _ConfigEmitenteRepositorio;
 
-        public UsuariosController(IUsuarioRepositorio usuarioRepositorio, IUsuarioServico usuarioServico, IClienteRepositorio clienteRespositorio, IConfiguracaoEmitenteRepositorio ConfigEmitenteRepositorio)
+        public UsuariosController(IUsuarioRepositorio usuarioRepositorio, IUsuarioServico usuarioServico)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _usuarioServico = usuarioServico;
-            _clienteRespositorio = clienteRespositorio;
-            _ConfigEmitenteRepositorio = ConfigEmitenteRepositorio;
         }
 
         [SessionAuthorize(Roles = "Administrador")]
@@ -37,7 +34,7 @@ namespace BpeCentral.Web.Controllers
             var vm = new List<UsuarioViewModel>();
             var result = _usuarioRepositorio.ObterTodos();
             if (result != null && result.Count > 0)
-                vm = Mapper.Map<List<BPE_USUARIOS>, List<UsuarioViewModel>>(result);
+                vm = Mapper.Map<List<Usuario>, List<UsuarioViewModel>>(result);
             return View(vm);
         }
 
@@ -46,12 +43,11 @@ namespace BpeCentral.Web.Controllers
         public ActionResult Cadastro(int? id)
         {
             var vm = new UsuarioViewModel();
-            ViewBag.EmpresasCodigos = _ConfigEmitenteRepositorio.ObterEmpresasECodigos(); ;
             if (id > 0)
             {
                 var result = _usuarioRepositorio.Obter(id);
-                if (result != null && result.ID > 0)
-                    vm = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+                if (result != null && result.Id_Usuario > 0)
+                    vm = Mapper.Map<Usuario, UsuarioViewModel>(result);
             }
             else
             {                      
@@ -65,7 +61,7 @@ namespace BpeCentral.Web.Controllers
         [SessionAuthorize(Roles = "Administrador")]
         public ActionResult Cadastro(UsuarioViewModel user) 
         {
-            var usuario = Mapper.Map<UsuarioViewModel, BPE_USUARIOS>(user);
+            var usuario = Mapper.Map<UsuarioViewModel, Usuario>(user);
             if (user.ID > 0)
             {
                 //var userMaybe = _usuarioServico.TentarAlterar(usuario);
@@ -76,7 +72,6 @@ namespace BpeCentral.Web.Controllers
             {
                 //if (EmailJaCadastrado(user.Email))
                 //    return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { UsuarioExcecao.MensagensValidacao.EmailEmUso });
-                usuario.DATA_CADASTRO = DateTime.Now;
                 _usuarioServico.Incluir(usuario);
             }
             return RedirectToAction("Index", "Painel").ComMensagem(StatusSistemaEnum.Sucesso);
@@ -89,8 +84,8 @@ namespace BpeCentral.Web.Controllers
             if (id > 0)
             {
                 var result = _usuarioRepositorio.Obter(id);
-                if (result != null && result.ID > 0)
-                    vm = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+                if (result != null && result.Id_Usuario > 0)
+                    vm = Mapper.Map<Usuario, UsuarioViewModel>(result);
             }
             else
                 return View().ComMensagem(StatusSistemaEnum.Erro, new string[] { "erro" });
@@ -101,7 +96,7 @@ namespace BpeCentral.Web.Controllers
         [SessionAuthorize(Roles = "Administrador, EmpresaDeTransporte, ClienteEmpresa")]
         public ActionResult MudarSenha(UsuarioViewModel user)
         {
-            var usuario = Mapper.Map<UsuarioViewModel, BPE_USUARIOS>(user);
+            var usuario = Mapper.Map<UsuarioViewModel, Usuario>(user);
 
             if (user.ID > 0)
                 _usuarioServico.MudarSenha(usuario);
@@ -121,7 +116,8 @@ namespace BpeCentral.Web.Controllers
         [SessionAuthorize(Roles = "Administrador")]
         public ActionResult Delete(int id)
         {
-            _usuarioRepositorio.DeletarUsuario(id);
+            var usuario = _usuarioRepositorio.Obter(new{ Id_Usuario = id});
+            _usuarioRepositorio.RemoverItem(usuario);
             return RedirectToAction("Index").ComMensagem(StatusSistemaEnum.Sucesso);
         }
 

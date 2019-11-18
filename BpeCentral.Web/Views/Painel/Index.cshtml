@@ -1,5 +1,4 @@
-﻿@using BpeCentral.Dominio.Enum;
-@{
+﻿@{
     ViewBag.Title = "Painel";
 }
 @Html.Partial("_Breadcrumb")
@@ -25,7 +24,7 @@
                         </div>
                     </div>
                     <div class="panel-body text-center">
-                        <strong>@Model.Usuarios</strong>
+                        <strong>0</strong>
                     </div>
                 </div>
             </div>
@@ -35,7 +34,7 @@
                         <label>Trabalhos a Vencer</label>
                     </div>
                     <div class="panel-body text-center">
-                        <strong>@Model.Empresas</strong>
+                        <strong>0</strong>
                     </div>
                 </div>
             </div>
@@ -45,7 +44,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <label>Trabalhos Vencidos</label>
-                        <label>( @Model.BpesProcessados )</label>
                     </div>
                     <div class="panel-body text-center ">
                         <div style="overflow-x: scroll;">
@@ -58,7 +56,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <label>Trabalhos Entregues</label>
-                        <label>( @Model.BpesProcessados )</label>
                     </div>
                     <div class="panel-body text-center ">
                         <div style="overflow-x: scroll;">

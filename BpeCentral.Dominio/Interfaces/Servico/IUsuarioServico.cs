@@ -1,13 +1,14 @@
 ﻿using BpeCentral.Dominio;
+using MyPOS.Dominio.Entidades;
 
 namespace BpeCentral.Dominio.Interfaces.Servico
 {
     public interface IUsuarioServico
     {
-        BPE_USUARIOS Autenticacao(string login, string senha);
+        Usuario Autenticacao(string login, string senha);
         void MudarStatus(int ID);
-        void MudarSenha(BPE_USUARIOS usuario);
-        void Alterar(BPE_USUARIOS usuario);
-        void Incluir(BPE_USUARIOS usuario);
+        void MudarSenha(Usuario usuario);
+        void Alterar(Usuario usuario);
+        void Incluir(Usuario usuario);
     }
 }

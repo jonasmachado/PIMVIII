@@ -1,5 +1,4 @@
-﻿using BpeCentral.Dominio.DTO;
-using BpeCentral.Dominio.Enum;
+﻿using BpeCentral.Dominio.Enum;
 using System.Collections.Generic;
 
 namespace BpeCentral.Dominio.Model
@@ -10,6 +9,5 @@ namespace BpeCentral.Dominio.Model
         public int Empresas { get; set; }
         public int BpesProcessados { get; set; }
         public EPerfilUsuario Usuario { get; set; }
-        public List<BpeEmpresaDTO> EmpresaQuantidadeBpe { get; set; }
     }
 }

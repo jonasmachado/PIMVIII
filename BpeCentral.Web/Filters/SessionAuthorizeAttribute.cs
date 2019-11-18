@@ -8,7 +8,7 @@ using BpeCentral.Dominio.Comum.Enum;
 using BpeCentral.Helpers;
 using BpeCentral.Web.Model;
 using BpeCentral.Web.ViewModels;
-using BpeCentral.Dominio.Enum;
+//using BpeCentral.Dominio.Enum;
 
 namespace BpeCentral.Web.Filters
 {
@@ -16,7 +16,7 @@ namespace BpeCentral.Web.Filters
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var regras = this.Roles.Split(',');
+            /*var regras = this.Roles.Split(',');
 
             BPE_USUARIOS result = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
             UsuarioViewModel usuario = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
@@ -32,8 +32,8 @@ namespace BpeCentral.Web.Filters
                         return true;
                 }
             }
-
-            return false;
+            */
+            return true;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
