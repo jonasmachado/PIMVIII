@@ -1,6 +1,6 @@
-﻿@model List<BpeCentral.Web.ViewModels.UsuarioViewModel>
+﻿@model List<BpeCentral.Web.ViewModels.TrabalhoViewModel>
 @{
-    ViewBag.Title = "Usuários";
+    ViewBag.Title = "Trabalhos";
 }
 @Html.Partial("_Breadcrumb")
 
@@ -10,7 +10,7 @@
     <div class="col-md-9 padding-vertical crud">
         <h2>
             Trabalhos
-            @Html.ActionLink("Cadastrar novo", "Cadastro", "Usuarios", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
+            @Html.ActionLink("Cadastrar novo", "Cadastro", "Trabalho", new { @class = "btn navbar-btn btn-custom btn-custom-black pull-right" })
         </h2>
         <table class="dataTable" width="100%">
             <thead>
@@ -18,37 +18,39 @@
                     <th>Título</th>
                     <th>Cadeira/Matéria</th>
                     <th>Data Para Entrega</th>
-                    <th>Entregue</th>
+                    <th>Status</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @if (Model != null) { 
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Perfil)</td>
-                        <td>
-                            <a class="glyphicon-custom glyphicon glyphicon-pencil pull-right" href="@Url.Action("Cadastro", "Usuarios", new { id = item.Id_Usuario })"></a>
-                            <div class="dropdown pull-right" style="float: left;">
-                                <a class="glyphicon-custom glyphicon glyphicon-cog" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li><a href="@Url.Action("MudarSenha", "Usuarios", new { id = item.Id_Usuario })">Mudar senha</a></li>
-                                    @if (item.Ativo)
-                                    {
-                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})">Desativar</a></li>
-                                    }
-                                    else
-                                    {
-                                        <li><a href="@Url.Action("MudarStatus", "Usuarios", new {id = item.Id_Usuario})">Ativar</a></li>
-                                    }
-                                    <li><a href="@Url.Action("Delete", "Usuarios", new { id = item.Id_Usuario })">Remover</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                }
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Materia)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DataParaEntrega)</td>
+                            <td>
+                                @if (item.Entregue)
+                                {
+                                    <a title="Marcar como pendente" href="@Url.Action("MudarStatus", "Trabalho", new {id = item.Id_Trabalho})"><span class="label label-success">Entregue</span></a>
+                                }
+                                else
+                                {
+                                    <a title="Marcar como entregue" href="@Url.Action("MudarStatus", "Trabalho", new {id = item.Id_Trabalho})"><span class="label label-danger">Pendente</span></a>
+                                }
+                            </td>
+                            <td>
+                                <a class="glyphicon-custom glyphicon glyphicon-pencil pull-right" href="@Url.Action("Cadastro", "Trabalho", new { id = item.Id_Trabalho })"></a>
+                                <div class="dropdown pull-right" style="float: left;">
+                                    <a class="glyphicon-custom glyphicon glyphicon-cog" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><a href="@Url.Action("Delete", "Trabalho", new { id = item.Id_Trabalho })">Remover</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>

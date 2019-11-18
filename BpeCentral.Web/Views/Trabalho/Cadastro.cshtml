@@ -1,7 +1,7 @@
 ﻿@using Microsoft.Ajax.Utilities
 
 
-@model BpeCentral.Web.ViewModels.UsuarioViewModel
+@model BpeCentral.Web.ViewModels.TrabalhoViewModel
 @{
     ViewBag.Title = "Cadastrar Trabalho";
 }
@@ -18,22 +18,22 @@
         </h2>
         @using (Html.BeginForm("Cadastro", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            @Html.HiddenFor(m => m.Id_Usuario)
+            @*@Html.HiddenFor(m => m.Id_Usuario)*@
             <fieldset>
                 <div class="form-group">
                     <div class="col-md-6">
-                        @Html.LabelFor(m => m.Nome, new { @class = "control-label", @for = "Nome" })
-                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.Titulo, new { @class = "control-label", @for = "Nome" })
+                        @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Titulo, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-md-6">
+                    @*<div class="col-md-6">
                         @Html.LabelFor(m => m.Email, new { @class = "control-label", @for = "Email" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
+                    </div>*@
                 </div>
 
-                @if (Model != null && Model.Id_Usuario == 0)
+                @*@if (Model != null && Model.Id_Usuario == 0)
             {
                     <div class="form-group">
                         <div class="col-md-6">
@@ -54,7 +54,7 @@
                         <button type="submit" class="btn btn-custom btn-custom-black pull-right">Cadastrar</button>
                         <a href="@Url.Action("Index", "Usuarios")" class="btn btn-custom btn-custom-gray pull-right">Cancelar</a>
                     </div>
-                </div>
+                </div>*@
             </fieldset>
         }
     </div>
