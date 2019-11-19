@@ -11,6 +11,7 @@ using MyPOS.Dominio.Interfaces.Servicos;
 using MyPOS.Dominio.Entidades;
 using MyPOS.Dominio.Interfaces.Repositorio;
 using AutoMapper;
+using HomeworkBuddy.Web.Filters;
 
 namespace HomeworkBuddy.Web.Controllers
 {
@@ -23,12 +24,14 @@ namespace HomeworkBuddy.Web.Controllers
             _trabalhoRepositorio = trabalhoRepositorio;
         }
 
+        [SessionAuthorize]
         public ActionResult Index()
         {
             var colecao = Listagem<TrabalhoViewModel, Trabalho, ITrabalhoRepositorio>(_trabalhoRepositorio);
             return View(colecao);
         }
 
+        [SessionAuthorize]
         public ActionResult Cadastro(int? id)
         {
             var vm = new TrabalhoViewModel();
@@ -42,6 +45,7 @@ namespace HomeworkBuddy.Web.Controllers
             return View(vm);
         }
 
+        [SessionAuthorize]
         [HttpPost]
         public ActionResult Cadastro(TrabalhoViewModel trabalho)
         {

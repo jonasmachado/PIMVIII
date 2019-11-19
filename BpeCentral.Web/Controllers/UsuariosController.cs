@@ -28,7 +28,7 @@ namespace HomeworkBuddy.Web.Controllers
             _usuarioServico = usuarioServico;
         }
 
-        [SessionAuthorize(Roles = "Administrador")]
+        [SessionAuthorize]
         public ActionResult Index()
         {
             var vm = new List<UsuarioViewModel>();

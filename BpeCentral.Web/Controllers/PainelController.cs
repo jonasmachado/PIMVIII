@@ -18,7 +18,7 @@ namespace HomeworkBuddy.Web.Controllers
             _trabalhoRepositorio = trabalhoRepositorio;
         }
 
-        [SessionAuthorize(Roles = "Administrador")]
+        [SessionAuthorize]
         public ActionResult Index()
         {
             ViewBag.Alertas = _trabalhoRepositorio.ObterVencendoEmTresDias();

@@ -8,6 +8,7 @@ using HomeworkBuddy.Dominio.Comum.Enum;
 using HomeworkBuddy.Helpers;
 using HomeworkBuddy.Web.Model;
 using HomeworkBuddy.Web.ViewModels;
+using MyPOS.Dominio.Entidades;
 //using HomeworkBuddy.Dominio.Enum;
 
 namespace HomeworkBuddy.Web.Filters
@@ -16,24 +17,11 @@ namespace HomeworkBuddy.Web.Filters
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            /*var regras = this.Roles.Split(',');
 
-            BPE_USUARIOS result = SessionHelper.Recuperar<BPE_USUARIOS>("dataOn");
-            UsuarioViewModel usuario = Mapper.Map<BPE_USUARIOS, UsuarioViewModel>(result);
+            var result = SessionHelper.Recuperar<Usuario>("dataOn");
+            UsuarioViewModel usuario = Mapper.Map<Usuario, UsuarioViewModel>(result);
 
-            if (usuario == null)
-                return false;
-
-            foreach(EPerfilUsuario perfil in Enum.GetValues(typeof(EPerfilUsuario)))
-            {
-                foreach(string regra in regras)
-                {
-                    if(Enum.GetName(typeof(EPerfilUsuario), (int)perfil).Equals(regra))
-                        return true;
-                }
-            }
-            */
-            return true;
+            return usuario != null;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
