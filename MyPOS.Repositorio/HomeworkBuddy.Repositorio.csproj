@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F82D5758-F5B5-4057-9E73-86F8FAE37B90}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MyPOS.Repositorio</RootNamespace>
-    <AssemblyName>MyPOS.Repositorio</AssemblyName>
+    <RootNamespace>HomeworkBuddy.Repositorio</RootNamespace>
+    <AssemblyName>HomeworkBuddy.Repositorio</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

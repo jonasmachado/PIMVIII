@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Helpers", "Bp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.IoC", "BpeCentral.IoC\HomeworkBuddy.IoC.csproj", "{FF847BC2-13E1-46C4-A7D1-06B282F018D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Repositorio", "MyPOS.Repositorio\HomeworkBuddy.Repositorio.csproj", "{F82D5758-F5B5-4057-9E73-86F8FAE37B90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Repositorio", "HomeworkBuddy.Repositorio\HomeworkBuddy.Repositorio.csproj", "{F82D5758-F5B5-4057-9E73-86F8FAE37B90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Dominio", "MyPOS.Dominio\HomeworkBuddy.Dominio.csproj", "{A1838217-348D-4021-B4F4-E5166FF7F0E0}"
 EndProject

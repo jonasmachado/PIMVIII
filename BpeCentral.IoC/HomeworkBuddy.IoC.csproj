@@ -92,13 +92,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HomeworkBuddy.Repositorio\HomeworkBuddy.Repositorio.csproj">
+      <Project>{f82d5758-f5b5-4057-9e73-86f8fae37b90}</Project>
+      <Name>HomeworkBuddy.Repositorio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyPOS.Dominio\HomeworkBuddy.Dominio.csproj">
       <Project>{A1838217-348D-4021-B4F4-E5166FF7F0E0}</Project>
       <Name>HomeworkBuddy.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyPOS.Repositorio\HomeworkBuddy.Repositorio.csproj">
-      <Project>{F82D5758-F5B5-4057-9E73-86F8FAE37B90}</Project>
-      <Name>HomeworkBuddy.Repositorio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
