@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using BpeCentral.Dominio.Comum.Enum;
-using BpeCentral.Helpers;
-using BpeCentral.Web.Model;
+using HomeworkBuddy.Dominio.Comum.Enum;
+using HomeworkBuddy.Helpers;
+using HomeworkBuddy.Web.Model;
 
-namespace BpeCentral.Web.Filters
+namespace HomeworkBuddy.Web.Filters
 {
     public class ExceptionHandleErrorAttribute : HandleErrorAttribute, IExceptionFilter
     {

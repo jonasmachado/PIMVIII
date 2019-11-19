@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Web.Http.Dependencies;
 
-namespace BpeCentral.IoC.NinjectDependencyScope
+namespace HomeworkBuddy.IoC.NinjectDependencyScope
 {
     public class NinjectDependencyScope : IDependencyScope
     {

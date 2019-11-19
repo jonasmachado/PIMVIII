@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Optimization;
 
-namespace BpeCentral.Web
+namespace HomeworkBuddy.Web
 {
     class NonOrderingBundleOrderer : IBundleOrderer
     {

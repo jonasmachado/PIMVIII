@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using BpeCentral.Dominio.Comum.Enum;
+using HomeworkBuddy.Dominio.Comum.Enum;
 
-namespace BpeCentral.Web.Model
+namespace HomeworkBuddy.Web.Model
 {
     public static class ActionResultExtensions
     {

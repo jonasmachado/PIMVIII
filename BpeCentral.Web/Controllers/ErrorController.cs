@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     public class ErrorController : Controller
     {

@@ -5,13 +5,13 @@ using Ninject.Web.Common.WebHost;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using BpeCentral.IoC.Modules;
-using BpeCentral.Web.Mappers;
+using HomeworkBuddy.IoC.Modules;
+using HomeworkBuddy.Web.Mappers;
 using System;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
 
-namespace BpeCentral.Web
+namespace HomeworkBuddy.Web
 {
     public class MvcApplication : NinjectHttpApplication
     {

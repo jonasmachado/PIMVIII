@@ -1,7 +1,7 @@
 ﻿using MyPOS.Dominio.Entidades;
 using MyPOS.Dominio.Interfaces.Repositorio;
 using MyPOS.Dominio.Interfaces.Servicos;
-using BpeCentral.Helpers.Properties;
+using HomeworkBuddy.Helpers.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +18,11 @@ namespace MyPOS.Dominio.Servicos
         {
             _usuarioRepositorio = repositorio;
         }
-        
-        //public Usuario Autenticacao(string login, string senha)
-        //{
-        //    string hash = SenhaHelper.GerarHash(senha);
-        //    return _usuarioRepositorio.Login(login, hash);
-        //}
 
-            //MOCK
         public Usuario Autenticacao(string login, string senha)
         {
-            return new Usuario
-            {
-                Email = "testeEmail@teste.com",
-                Id_Usuario = 1,
-                Nome = "UsuarioTeste",
-                Perfil = 1
-            };
+            string hash = SenhaHelper.GerarHash(senha);
+            return _usuarioRepositorio.Login(login, hash);
         }
 
         public void MudarStatus(int ID)

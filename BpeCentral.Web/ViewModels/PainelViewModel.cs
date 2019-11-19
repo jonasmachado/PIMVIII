@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace BpeCentral.Web.ViewModels
+namespace HomeworkBuddy.Web.ViewModels
 {
     public class PainelViewModel
     {

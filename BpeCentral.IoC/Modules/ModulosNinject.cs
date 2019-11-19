@@ -4,7 +4,7 @@ using MyPOS.Dominio.Servicos;
 using MyPOS.Repositorio.Repositorio;
 using Ninject.Modules;
 
-namespace BpeCentral.IoC.Modules
+namespace HomeworkBuddy.IoC.Modules
 {
     public class ModulosNinject : NinjectModule
     {

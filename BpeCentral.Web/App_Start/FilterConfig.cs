@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace BpeCentral.Web
+namespace HomeworkBuddy.Web
 {
     public class FilterConfig
     {

@@ -1,20 +1,20 @@
 ﻿using System;
 using AutoMapper;
 
-using BpeCentral.Web.ViewModels;
+using HomeworkBuddy.Web.ViewModels;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BpeCentral.Web.Filters;
-using BpeCentral.Web.Model;
-using BpeCentral.Web.Helpers;
-using BpeCentral.Dominio.Comum.Enum;
-using BpeCentral.Dominio;
+using HomeworkBuddy.Web.Filters;
+using HomeworkBuddy.Web.Model;
+using HomeworkBuddy.Web.Helpers;
+using HomeworkBuddy.Dominio.Comum.Enum;
+using HomeworkBuddy.Dominio;
 using System.Linq;
 using MyPOS.Dominio.Interfaces.Repositorio;
 using MyPOS.Dominio.Interfaces.Servicos;
 using MyPOS.Dominio.Entidades;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     [ExceptionHandleError]
     public class UsuariosController : Controller

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using BpeCentral.Dominio.Comum.Enum;
+using HomeworkBuddy.Dominio.Comum.Enum;
 
-namespace BpeCentral.Web.ViewModels
+namespace HomeworkBuddy.Web.ViewModels
 {
     public class UsuarioViewModel
     {

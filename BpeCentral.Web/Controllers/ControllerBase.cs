@@ -3,7 +3,7 @@ using MyPOS.Dominio.Interfaces.Repositorio;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     public class ControllerBase : Controller
     {

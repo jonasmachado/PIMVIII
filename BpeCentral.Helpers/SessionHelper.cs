@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace BpeCentral.Helpers
+namespace HomeworkBuddy.Helpers
 {
     public static class SessionHelper
     {

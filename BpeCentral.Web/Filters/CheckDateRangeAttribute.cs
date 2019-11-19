@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BpeCentral.Web.Filters
+namespace HomeworkBuddy.Web.Filters
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
     public class CheckDateRangeAttribute : ValidationAttribute

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace BpeCentral.Helpers.Properties
+namespace HomeworkBuddy.Helpers.Properties
 {
     public static class SenhaHelper
     {

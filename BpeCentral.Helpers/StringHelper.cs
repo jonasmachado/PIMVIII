@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace BpeCentral.Helpers
+namespace HomeworkBuddy.Helpers
 {
     public static class StringHelper
     {

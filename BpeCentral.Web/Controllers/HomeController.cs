@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using BpeCentral.Web.Filters;
+using HomeworkBuddy.Web.Filters;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     [ExceptionHandleError]
     public class HomeController : Controller

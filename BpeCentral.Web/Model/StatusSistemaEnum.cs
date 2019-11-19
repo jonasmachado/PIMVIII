@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BpeCentral.Dominio.Comum.Enum
+namespace HomeworkBuddy.Dominio.Comum.Enum
 {
     public enum StatusSistemaEnum
     {

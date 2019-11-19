@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
-using BpeCentral.Dominio;
-using BpeCentral.Dominio.Comum.Enum;
-using BpeCentral.Helpers;
-using BpeCentral.Web.Model;
-using BpeCentral.Web.ViewModels;
+using HomeworkBuddy.Dominio;
+using HomeworkBuddy.Dominio.Comum.Enum;
+using HomeworkBuddy.Helpers;
+using HomeworkBuddy.Web.Model;
+using HomeworkBuddy.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using MyPOS.Dominio.Interfaces.Servicos;
@@ -12,7 +12,7 @@ using MyPOS.Dominio.Entidades;
 using MyPOS.Dominio.Interfaces.Repositorio;
 using AutoMapper;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     [AllowAnonymous]
     public class TrabalhoController : ControllerBase

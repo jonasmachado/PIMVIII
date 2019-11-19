@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.WebPages;
 
-namespace BpeCentral.Web
+namespace HomeworkBuddy.Web
 {
     public static class HtmlExtensions
     {

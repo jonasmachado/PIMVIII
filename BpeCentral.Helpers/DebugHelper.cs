@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BpeCentral.Helpers
+namespace HomeworkBuddy.Helpers
 {
     public static class DebugHelper
     {

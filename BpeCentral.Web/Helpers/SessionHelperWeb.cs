@@ -1,7 +1,7 @@
-﻿using BpeCentral.Helpers;
+﻿using HomeworkBuddy.Helpers;
 using MyPOS.Dominio.Entidades;
 
-namespace BpeCentral.Web.Helpers
+namespace HomeworkBuddy.Web.Helpers
 {
     public static class SessionHelperWeb
     { 

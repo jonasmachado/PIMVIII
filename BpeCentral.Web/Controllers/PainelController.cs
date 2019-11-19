@@ -1,13 +1,13 @@
 ﻿using System.Web.Mvc;
-using BpeCentral.Web.Filters;
-using BpeCentral.Web.ViewModels;
-using BpeCentral.Dominio;
+using HomeworkBuddy.Web.Filters;
+using HomeworkBuddy.Web.ViewModels;
+using HomeworkBuddy.Dominio;
 using AutoMapper;
-using BpeCentral.Helpers;
+using HomeworkBuddy.Helpers;
 using System;
 using MyPOS.Dominio.Interfaces.Repositorio;
 
-namespace BpeCentral.Web.Controllers
+namespace HomeworkBuddy.Web.Controllers
 {
     [ExceptionHandleError]
     public class PainelController : Controller

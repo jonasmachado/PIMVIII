@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BpeCentral.Web.ViewModels
+namespace HomeworkBuddy.Web.ViewModels
 {
     public class TrabalhoViewModel
     {

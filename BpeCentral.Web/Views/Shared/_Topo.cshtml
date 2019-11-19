@@ -1,7 +1,7 @@
 ﻿@using AutoMapper
 @using MyPOS.Dominio.Entidades
-@using BpeCentral.Helpers
-@using BpeCentral.Web.ViewModels
+@using HomeworkBuddy.Helpers
+@using HomeworkBuddy.Web.ViewModels
 @{
     var result = SessionHelper.Recuperar<Usuario>("dataOn");
     UsuarioViewModel usuario = Mapper.Map<Usuario, UsuarioViewModel>(result);

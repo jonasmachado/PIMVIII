@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BpeCentral.Web.Model
+namespace HomeworkBuddy.Web.Model
 {
     public class DashboardModel
     {

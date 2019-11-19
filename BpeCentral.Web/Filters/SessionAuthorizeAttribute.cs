@@ -2,15 +2,15 @@
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
-using BpeCentral.Dominio;
-using BpeCentral.Dominio.Comum.Enum;
+using HomeworkBuddy.Dominio;
+using HomeworkBuddy.Dominio.Comum.Enum;
 
-using BpeCentral.Helpers;
-using BpeCentral.Web.Model;
-using BpeCentral.Web.ViewModels;
-//using BpeCentral.Dominio.Enum;
+using HomeworkBuddy.Helpers;
+using HomeworkBuddy.Web.Model;
+using HomeworkBuddy.Web.ViewModels;
+//using HomeworkBuddy.Dominio.Enum;
 
-namespace BpeCentral.Web.Filters
+namespace HomeworkBuddy.Web.Filters
 {
     public class SessionAuthorizeAttribute : AuthorizeAttribute
     {

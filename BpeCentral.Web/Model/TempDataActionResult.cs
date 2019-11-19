@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace BpeCentral.Web.Model
+namespace HomeworkBuddy.Web.Model
 {
     public class TempDataActionResult : ActionResult
     {

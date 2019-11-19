@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace BpeCentral.Web.Mappers
+namespace HomeworkBuddy.Web.Mappers
 {
     public class AutoMapperConfig
     {
