@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using MyPOS.Dominio.Interfaces.Servicos;
 using MyPOS.Dominio.Entidades;
 using MyPOS.Dominio.Interfaces.Repositorio;
+using AutoMapper;
 
 namespace BpeCentral.Web.Controllers
 {
@@ -28,15 +29,29 @@ namespace BpeCentral.Web.Controllers
             return View(colecao);
         }
 
-        public ActionResult Cadastro()
+        public ActionResult Cadastro(int? id)
         {
-            return View();
+            var vm = new TrabalhoViewModel();
+            if (id > 0)
+            {
+                var result = _trabalhoRepositorio.ObterPorId(id.Value);
+                if (result != null && result.Id_Trabalho > 0)
+                    vm = Mapper.Map<Trabalho, TrabalhoViewModel>(result);
+            }
+ 
+            return View(vm);
         }
 
         [HttpPost]
         public ActionResult Cadastro(TrabalhoViewModel trabalho)
         {
-            Cadastrar<TrabalhoViewModel, Trabalho, ITrabalhoRepositorio>(_trabalhoRepositorio, trabalho);
+            if(trabalho.Id_Trabalho == 0)
+                Cadastrar<TrabalhoViewModel, Trabalho, ITrabalhoRepositorio>(_trabalhoRepositorio, trabalho);
+            else
+            {
+                var entity = Mapper.Map<TrabalhoViewModel, Trabalho>(trabalho);
+                _trabalhoRepositorio.SalvarModificacoes(entity);
+            }
             return RedirectToAction("Index", "Painel").ComMensagem(StatusSistemaEnum.Sucesso);
         }
 

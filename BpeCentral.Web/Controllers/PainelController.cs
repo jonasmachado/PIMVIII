@@ -21,6 +21,7 @@ namespace BpeCentral.Web.Controllers
         [SessionAuthorize(Roles = "Administrador")]
         public ActionResult Index()
         {
+            ViewBag.Alertas = _trabalhoRepositorio.ObterVencendoEmTresDias();
             var vm = MontaDadosPainel();
             return View(vm);
         }
@@ -30,7 +31,6 @@ namespace BpeCentral.Web.Controllers
             return new PainelViewModel()
             {
                 TotalTrabalhos     = _trabalhoRepositorio.Count(),
-                TrabalhosAVencer   = _trabalhoRepositorio.ObterQuantidadeAVencer(),
                 TrabalhosEntregues = _trabalhoRepositorio.ObterQuantidadeEntregue(),
                 TrabalhosVencidos  = _trabalhoRepositorio.ObterQuantidadeVencidos()
             };

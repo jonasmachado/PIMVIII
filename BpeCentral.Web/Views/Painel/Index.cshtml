@@ -18,8 +18,8 @@
                         <div class="dropdown pull-right">
                             <a class="glyphicon glyphicon-option-vertical" id="dropdownMenu1" data-toggle="dropdown" aria-hidden="true"></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li>@Html.ActionLink("Listar", "Index", "Usuarios")</li>
-                                <li>@Html.ActionLink("Cadastrar", "Cadastro", "Usuarios")</li>
+                                <li>@Html.ActionLink("Listar", "Index", "Trabalho")</li>
+                                <li>@Html.ActionLink("Cadastrar", "Cadastro", "Trabalho")</li>
                             </ul>
                         </div>
                     </div>
@@ -31,10 +31,13 @@
             <div class="col-sx-6 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <label>Trabalhos a Vencer</label>
+                        <label>Alertas</label>
                     </div>
-                    <div class="panel-body text-center">
-                        <strong>@Model.TrabalhosAVencer</strong>
+                    <div class="panel-body text-center" style="overflow-y:scroll; height: 5.3em">
+                        @foreach (var item in ViewBag.Alertas)
+                        {
+                          <div style="color: darkred">@item</div>
+                        }
                     </div>
                 </div>
             </div>

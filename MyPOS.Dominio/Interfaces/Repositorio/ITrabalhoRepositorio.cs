@@ -1,4 +1,5 @@
 ﻿using MyPOS.Dominio.Entidades;
+using System.Collections.Generic;
 
 namespace MyPOS.Dominio.Interfaces.Repositorio
 {
@@ -8,5 +9,6 @@ namespace MyPOS.Dominio.Interfaces.Repositorio
         int ObterQuantidadeVencidos();
         int ObterQuantidadeEntregue();
         Trabalho ObterPorId(int id);
+        List<string> ObterVencendoEmTresDias();
     }
 }

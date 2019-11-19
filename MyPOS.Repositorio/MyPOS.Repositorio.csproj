@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201911181933053_nova4.Designer.cs">
       <DependentUpon>201911181933053_nova4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911190128218_nova5.cs" />
+    <Compile Include="Migrations\201911190128218_nova5.Designer.cs">
+      <DependentUpon>201911190128218_nova5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositorio\TrabalhoRepositorio.cs" />
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911181933053_nova4.resx">
       <DependentUpon>201911181933053_nova4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190128218_nova5.resx">
+      <DependentUpon>201911190128218_nova5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

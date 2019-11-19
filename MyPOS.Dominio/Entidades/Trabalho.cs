@@ -7,11 +7,11 @@ namespace MyPOS.Dominio.Entidades
     [Table("trabalho", Schema = "hwb")]
     public class Trabalho
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_trabalho")]
         public int Id_Trabalho { get; set; }
-
-        [Key]
+        
         [Column("titulo")]
         public string Titulo { get; set; }
 

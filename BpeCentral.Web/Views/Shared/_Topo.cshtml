@@ -19,15 +19,13 @@
                 <a class="navbar-brand" href="http://incremente.com.br">
                     <img src="~/Content/Cliente/SantaCruz/logotipo.png" style="height: 3.7em; padding-top: 0.5em" />
                 </a>
+                <div style="position: absolute; left:40%; font-size: 2em; top: 0.8em">HomeworkBuddy</div>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>Gerenciador de Trabalhos Acadêmicos</li>
-                </ul>
                 @if (usuario == null)
                 {
-                    <ul class="nav navbar-nav navbar-right">                        
-                        @Html.ActionLink("Faça seu login", "Index", "Login", null, new { @class= "btn navbar-btn btn-custom btn-custom-black" })
+                    <ul class="nav navbar-nav navbar-right">
+                        @Html.ActionLink("Faça seu login", "Index", "Login", null, new { @class = "btn navbar-btn btn-custom btn-custom-black" })
                     </ul>
                 }
                 else
@@ -44,7 +42,7 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Meu Painel","Index","Painel")</li>
+                                <li>@Html.ActionLink("Meu Painel", "Index", "Painel")</li>
                                 <li>@Html.ActionLink("Sair", "Sair", "Login", "", new { area = "Admin" })</li>
                             </ul>
                         </div>
