@@ -40,9 +40,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BpeCentral.Helpers\BpeCentral.Helpers.csproj">
+    <ProjectReference Include="..\BpeCentral.Helpers\HomeworkBuddy.Helpers.csproj">
       <Project>{E12099DE-4E29-4122-B25C-1A177A641250}</Project>
-      <Name>MyPOS.Helpers</Name>
+      <Name>HomeworkBuddy.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

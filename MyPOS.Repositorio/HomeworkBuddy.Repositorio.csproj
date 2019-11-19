@@ -70,9 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyPOS.Dominio\MyPOS.Dominio.csproj">
+    <ProjectReference Include="..\MyPOS.Dominio\HomeworkBuddy.Dominio.csproj">
       <Project>{a1838217-348d-4021-b4f4-e5166ff7f0e0}</Project>
-      <Name>MyPOS.Dominio</Name>
+      <Name>HomeworkBuddy.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

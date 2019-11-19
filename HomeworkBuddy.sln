@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{DBC644B5-1143-4992-A9E8-FE266D50E062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BpeCentral.Web", "BpeCentral.Web\BpeCentral.Web.csproj", "{273EDF35-EB04-4106-850C-9942D5AEE716}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Web", "BpeCentral.Web\HomeworkBuddy.Web.csproj", "{273EDF35-EB04-4106-850C-9942D5AEE716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BpeCentral.Helpers", "BpeCentral.Helpers\BpeCentral.Helpers.csproj", "{E12099DE-4E29-4122-B25C-1A177A641250}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Helpers", "BpeCentral.Helpers\HomeworkBuddy.Helpers.csproj", "{E12099DE-4E29-4122-B25C-1A177A641250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BpeCentral.IoC", "BpeCentral.IoC\BpeCentral.IoC.csproj", "{FF847BC2-13E1-46C4-A7D1-06B282F018D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.IoC", "BpeCentral.IoC\HomeworkBuddy.IoC.csproj", "{FF847BC2-13E1-46C4-A7D1-06B282F018D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPOS.Repositorio", "MyPOS.Repositorio\MyPOS.Repositorio.csproj", "{F82D5758-F5B5-4057-9E73-86F8FAE37B90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Repositorio", "MyPOS.Repositorio\HomeworkBuddy.Repositorio.csproj", "{F82D5758-F5B5-4057-9E73-86F8FAE37B90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPOS.Dominio", "MyPOS.Dominio\MyPOS.Dominio.csproj", "{A1838217-348D-4021-B4F4-E5166FF7F0E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkBuddy.Dominio", "MyPOS.Dominio\HomeworkBuddy.Dominio.csproj", "{A1838217-348D-4021-B4F4-E5166FF7F0E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

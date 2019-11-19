@@ -751,17 +751,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BpeCentral.Helpers\BpeCentral.Helpers.csproj">
+    <ProjectReference Include="..\BpeCentral.Helpers\HomeworkBuddy.Helpers.csproj">
       <Project>{E12099DE-4E29-4122-B25C-1A177A641250}</Project>
-      <Name>BpeCentral.Helpers</Name>
+      <Name>HomeworkBuddy.Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BpeCentral.IoC\BpeCentral.IoC.csproj">
+    <ProjectReference Include="..\BpeCentral.IoC\HomeworkBuddy.IoC.csproj">
       <Project>{ff847bc2-13e1-46c4-a7d1-06b282f018d2}</Project>
-      <Name>BpeCentral.IoC</Name>
+      <Name>HomeworkBuddy.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyPOS.Dominio\MyPOS.Dominio.csproj">
+    <ProjectReference Include="..\MyPOS.Dominio\HomeworkBuddy.Dominio.csproj">
       <Project>{A1838217-348D-4021-B4F4-E5166FF7F0E0}</Project>
-      <Name>MyPOS.Dominio</Name>
+      <Name>HomeworkBuddy.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
