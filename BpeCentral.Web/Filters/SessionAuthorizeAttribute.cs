@@ -21,6 +21,8 @@ namespace HomeworkBuddy.Web.Filters
             var result = SessionHelper.Recuperar<Usuario>("dataOn");
             UsuarioViewModel usuario = Mapper.Map<Usuario, UsuarioViewModel>(result);
 
+            return true;
+
             return usuario != null;
         }
 
